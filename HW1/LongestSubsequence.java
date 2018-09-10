@@ -29,22 +29,22 @@ public class LongestSubsequence {
   
   public static int[] LongestIncreasingSubsequence(ArrayList<Integer> original){ 
     int length = original.size(); 
-    int[] array2 = new int[length];
-    int[] array3 = new int[length];
+    int[] workingPointers = new int[length];
+    int[] resultPointers = new int[length];
     int ele = 0;
     for (int i = 0; i < length; i++) {
       int j = 0;
       //search for elements
       for (int k = ele/*k is starting at 0*/ ; k >= 1; k--){
-        if (original.get(array2[k]) < original.get(i)){
+        if (original.get(workingPointers[k]) < original.get(i)){
           j = k;
           break;
         }
       }
       
-      array3[i] = array2[j];
-      if (j == ele || original.get(i) < original.get(array2[j + 1])){
-        array2[j + 1] = i;
+      resultPointers[i] = workingPointers[j];
+      if (j == ele || original.get(i) < original.get(workingPointers[j + 1])){
+        workingPointers[j + 1] = i;
         //math funtion used to assign elements
         ele = Math.max(ele,j + 1);
       }
@@ -52,10 +52,10 @@ public class LongestSubsequence {
     
     //backtracking process
     int[] result = new int[ele];
-    int k = array2[ele];
+    int k = workingPointers[ele];
     for (int i = ele - 1; i >= 0; i--){
       result[i] = original.get(k);
-      k = array3[k];
+      k = resultPointers[k];
     }
     return result;            
   }
