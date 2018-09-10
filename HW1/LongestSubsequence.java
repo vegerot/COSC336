@@ -64,7 +64,7 @@ public class LongestSubsequence {
  Test 1
  8 in List
  10 9 2 5 3 7 101 18 STOP
- Length of longest increasing subsequence is:4
+ Length of longest increasing subsequence is: 4
  Longest Subsequence is: 2 3 7 18 
 
  Test 2
@@ -74,7 +74,7 @@ public class LongestSubsequence {
  48  811  594  303  191  505  724  818  536  416  179  485   
  334   74  998  100  197  768  421  114  739  636  356  908   
  477  656 STOP
- Length of longest increasing subsequence is:10
+ Length of longest increasing subsequence is: 10
  Longest Subsequence is: 186 274 310 426 524 565 594 724 739 908 
 
  Test 3
@@ -84,6 +84,6 @@ public class LongestSubsequence {
  256   768   404   190   559   1000   482   141   26  230
  550   881   759   122   878  350  756  82  562  897  508
  853  317   380   807   23   506   98   757   247 STOP
- Length of longest increasing subsequence is:9
+ Length of longest increasing subsequence is: 9
  Longest Subsequence is: 123 148 256 404 482 550 759 878 897 
   */
