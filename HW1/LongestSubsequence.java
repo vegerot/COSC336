@@ -1,16 +1,19 @@
 import java.util.*;
 public class LongestSubsequence {
   
-  public static void main(String[] args) {   
+  public static void main(String[] args) {
     Scanner input = new Scanner(System.in);
     System.out.println("Longest Subsequence\n");
     ArrayList<Integer> originalList=new ArrayList<Integer>();
     System.out.print("Enter list of numbers(enter string to stop): ");
     //while loop allows user to enter elements seperated by a space until a string is entered
-    while(input.hasNextInt()){
-	    originalList.add(input.nextInt());
+    if (args.length!=0)
+    	for (int i=0; i<args.length; i++)
+            originalList.add(Integer.parseInt(args[i]));
+    else while(input.hasNextInt()){
+	originalList.add(input.nextInt());
       
-    }
+  	}
     System.out.println("Original list: ");
     for (int z = 0; z < originalList.size();z++)
 	    System.out.print(originalList.get(z) + " "); 
@@ -27,22 +30,22 @@ public class LongestSubsequence {
   
   public static int[] LongestIncreasingSubsequence(ArrayList<Integer> original){ 
     int length = original.size(); 
-    int[] workingPointers = new int[length];
-    int[] resultPointers = new int[length];
+    ArrayList<Integer> workingPointers = new ArrayList<Integer>(Collections.nCopies(length-1,0));
+    ArrayList<Integer> resultPointers = new ArrayList<Integer>(Collections.nCopies(length-1,0));
     int ele = 0;
     for (int i = 0; i < length; i++) {
       int j = 0;
       //search for elements
       for (int k = ele/*k is starting at 0*/ ; k >= 1; k--){
-        if (original.get(workingPointers[k]) < original.get(i)){
+        if (original.get(workingPointers.get(k)) < original.get(i)){
           j = k;
           break;
         }
       }
       
-      resultPointers[i] = workingPointers[j];
-      if (j == ele || original.get(i) < original.get(workingPointers[j + 1])){
-        workingPointers[j + 1] = i;
+      resultPointers.add(i,workingPointers.get(j));
+      if (j == ele || original.get(i) < original.get(workingPointers.get(j + 1))){
+        workingPointers.add(j + 1, i);
         //math funtion used to assign elements
         ele = Math.max(ele,j + 1);
       }
@@ -50,10 +53,10 @@ public class LongestSubsequence {
     
     //backtracking process
     int[] result = new int[ele];
-    int k = workingPointers[ele];
+    int k = workingPointers.get(ele);
     for (int i = ele - 1; i >= 0; i--){
       result[i] = original.get(k);
-      k = resultPointers[k];
+      k = resultPointers.get(k);
     }
     return result;            
   }
