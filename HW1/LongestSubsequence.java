@@ -1,3 +1,11 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package longestsubsequence;
+
+
 //This version is with explainations. I would advise testing it with the smallest array first. THe arrays with 50 elements takes about 3 minutes to run fully.
 
 import java.util.*;
@@ -9,16 +17,21 @@ public class LongestSubsequence {
     //user enters number of elements (integers) for the array
     System.out.println("Enter number of elements to be placed in array:");
     int numEle = getInt(input);
-    int[] list1 = new int[numEle + 1];
+    int[] list1 = new int[numEle+1];
     System.out.println("\nEnter "+ numEle +" elements");
-    int num = getInt(input);
-    //while loop allows user to enter elements seperated by a space, 999 will signal to stop loop
-    while (num != 999) {
-      for (int i = 1; i <= numEle; i++){
-        list1[i] = num;
+    int num;
+    //while loop allows user to enter elements seperated by a space
+    
+      for (int i = 0; i <numEle; i++){
+        //reorganized so num = came first then assigned the num to a spot that way it stopped asking for an extra datapoint
         num = getInt(input);
+        list1[i] = num;
       }
-    }
+      System.out.println("Printing entered numbers}");
+       for (int z = 0; z < list1.length;z++)
+            System.out.print( list1[z] + " ");
+       System.out.println("Done}");
+       
     LongestSubsequence obj = new LongestSubsequence();
     //user entered elements are sent to 'lis' function
     int[] result = obj.lis(list1);      
@@ -36,19 +49,21 @@ public class LongestSubsequence {
     int number = 0;
     boolean done = false;
     while (!done) {
-      try {
-        number = scan.nextInt();
-        if (number < 0 ) {
-          System.out.println("Number has to be 0 or greater. Try again: ");
+        if(scan.hasNextInt()){
+            number = scan.nextInt();
+            if (number < 0 ) {
+              System.out.println("Number has to be 0 or greater. Try again: ");
+            }
+            else {
+              done = true;
+            }
         }
-        else {
-          done = true;
+        else{
+            System.out.println("Not an integer. Try again.");
+            scan.nextLine();
         }
-      }
-      catch (InputMismatchException e) {
-        System.out.println("Not an integer. Try again.");
-        scan.nextLine();
-      }
+      
+        
     }
     return number;
   }
@@ -60,7 +75,9 @@ public class LongestSubsequence {
   //System.out.println("I am printing ");//
   public static int[] lis(int[] array1){ 
     System.out.println("You have entered the main function! ");//
-    int number = array1.length - 1;// minus 1 ??
+    int number = array1.length ;// minus 1 ?? 
+    //seems you added an extra part to your initial list so you needed a -1 here to counter it
+    //I removed both -1 and exra space to list 1
     int[] array2 = new int[number];
     int[] array3 = new int[number];
     int ele = 0;
@@ -76,7 +93,7 @@ public class LongestSubsequence {
     for (int z = 0; z < array3.length;z++)
       System.out.print( array3[z] + " ");
     System.out.println();
-    for (int i = 1; i < number; i++) {
+    for (int i = 0; i < number; i++) {
       System.out.println("I am printing from for loop #1 and the iteration is: " + i);//
       int j = 0;
       //search for elements
