@@ -1,22 +1,20 @@
-
 import java.util.*;
 public class LongestSubsequence {
   
   public static void main(String[] args) {   
     Scanner input = new Scanner(System.in);
     System.out.println("Longest Subsequence\n");
-    //user enters number of elements (integers) for the array
     ArrayList<Integer> originalList=new ArrayList<Integer>();
     System.out.print("Enter list of numbers(enter string to stop): ");
     //while loop allows user to enter elements seperated by a space until a string is entered
-      while(input.hasNextInt()){
-	      originalList.add(input.nextInt());
+    while(input.hasNextInt()){
+	    originalList.add(input.nextInt());
       
-      }
-      System.out.println("Original list: ");
-       for (int z = 0; z < originalList.size();z++)
-            System.out.print(originalList.get(z) + " "); 
-       System.out.println();
+    }
+    System.out.println("Original list: ");
+    for (int z = 0; z < originalList.size();z++)
+	    System.out.print(originalList.get(z) + " "); 
+    System.out.println();
     //user entered elements are sent to 'LongestIncreasingSubsequence' function
     int[] result = LongestIncreasingSubsequence(originalList);      
     //printing values
