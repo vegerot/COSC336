@@ -20,7 +20,7 @@ public class LongestSubsequence {
     //user entered elements are sent to 'LongestIncreasingSubsequence' function
     int[] result = LongestIncreasingSubsequence(originalList);      
     //printing values
-    System.out.println("\nLength of longest increasing subsequence is:"+result.length);
+    System.out.println("\nLength of longest increasing subsequence is: "+result.length);
     System.out.print("\nLongest Subsequence is: "); 
     for (int i = 0; i < result.length; i++)
       System.out.print(result[i] +" ");            
