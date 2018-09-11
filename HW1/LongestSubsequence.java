@@ -30,8 +30,8 @@ public class LongestSubsequence {
   
   public static int[] LongestIncreasingSubsequence(ArrayList<Integer> original){ 
     int length = original.size(); 
-    ArrayList<Integer> workingPointers = new ArrayList<Integer>(Collections.nCopies(length+10,0));
-    ArrayList<Integer> resultPointers = new ArrayList<Integer>(Collections.nCopies(length+10,0));
+    ArrayList<Integer> workingPointers = new ArrayList<Integer>(Collections.nCopies(length+1,0));
+    ArrayList<Integer> resultPointers = new ArrayList<Integer>(Collections.nCopies(length+1,0));
     int ele = 0;
     for (int i = 0; i < length; i++) {
       int j = 0;
