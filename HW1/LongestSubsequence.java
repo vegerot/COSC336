@@ -8,7 +8,16 @@ import java.util.*;
  * Due 9/11/2018
  * This class calculates the longest increasing subsequence of a set of numbers
  *
-
+ *
+ *This code finds the longest subsequence by searching through the code,
+ *skipping any number with a smaller number directly after it if both could be added to the list
+ *can be added to the list. Since if any larger number or a smaller number can be put on the list
+ *the smaller of the two will always allow an equal or higher potential of 
+ *numbers to be added to the list folowing it. Then repeat the process.
+ *
+ *
+ 
+ 
 Please copy and paste the following Tests to test the program's functionality
 
    Test 1
