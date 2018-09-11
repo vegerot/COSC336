@@ -95,21 +95,25 @@ public class LongestSubsequence
 	{ 
 		int element = 0;
 		int length = original.size(); 
-		ArrayList<Integer> workingPointers = new ArrayList<Integer>(Collections.nCopies(length+1,0));
-		ArrayList<Integer> resultPointers = new ArrayList<Integer>(Collections.nCopies(length+1,0));
+		ArrayList<Integer> workingPointers = new ArrayList<Integer>(Collections.nCopies(length + 1, 0));
+		ArrayList<Integer> resultPointers = new ArrayList<Integer>(Collections.nCopies(length + 1, 0));
 		
-		for (int i = 0; i < length; i++) {
+		for (int i = 0; i < length; i++)
+		{
 			int j = 0;
 			//search for elements
-			for (int k = element/*k is starting at 0*/; k >= 1; k--){
-				if (original.get(workingPointers.get(k)) < original.get(i)){
+			for (int k = element/*k is starting at 0*/; k >= 1; k--)
+			{
+				if (original.get(workingPointers.get(k)) < original.get(i))
+				{
 					j = k;
 					break;
 				}
 			}
 
 			resultPointers.set(i,workingPointers.get(j));
-			if (j == element || original.get(i) < original.get(workingPointers.get(j + 1))){
+			if (j == element || original.get(i) < original.get(workingPointers.get(j + 1)))
+			{
 				workingPointers.set(j + 1, i);
 				//math function used to assign elements
 				element = Math.max(element,j + 1);
