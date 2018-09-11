@@ -1,9 +1,11 @@
 package longest;
 import java.util.*;
-//TODO add more comment
+
 /*
  * Written by: Max Coplan, Zachary Kafka, Andrew Willinham, Sage Isaac
- * 
+ * COSC 336-002
+ * Zimand
+ * Due 9/11/2018
  * This class calculates the longest increasing subsequence of a set of numbers
  *
 
