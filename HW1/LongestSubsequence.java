@@ -1,4 +1,3 @@
-package longest;
 import java.util.*;
 
 /*
