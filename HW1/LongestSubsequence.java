@@ -7,6 +7,8 @@ import java.util.*;
  * This class calculates the longest increasing subsequence of a set of numbers
  *
 
+Please copy and paste the following Tests to test the program's functionality
+
    Test 1
    8 in List
    10 9 2 5 3 7 101 18 STOP
@@ -89,7 +91,7 @@ public class LongestSubsequence
 	}
 
 	//====================================
-	// Runs the magic
+	// Runs the search for the longest increasing Subsequence
 	//====================================
 	public static int[] longestIncreasingSubsequence(ArrayList<Integer> original)
 	{ 
@@ -115,12 +117,15 @@ public class LongestSubsequence
 			if (j == element || original.get(i) < original.get(workingPointers.get(j + 1)))
 			{
 				workingPointers.set(j + 1, i);
+				//====================================
 				//math function used to assign elements
+				//====================================
 				element = Math.max(element,j + 1);
 			}
 		}
-
-		//backtracking process
+		//====================================
+		// backtracking process
+		//====================================
 		int[] result = new int[element];
 		int k = workingPointers.get(element);
 		for (int i = element - 1; i >= 0; i--)
