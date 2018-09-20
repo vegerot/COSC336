@@ -2,6 +2,7 @@ import java.util.*;
 
 public class MergeSort {
 
+//NOT DONE
 
     public static int[] mergeSortList(int[] list, int left, int right){
         if(right-left<2){
