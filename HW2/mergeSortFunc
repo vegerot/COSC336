@@ -1,4 +1,4 @@
-public class tempfile{ //merge sort function
+public class mergeSort{ //merge sort function
   public static void main(String[] args){
   
   }
