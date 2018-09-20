@@ -2,6 +2,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+//This is really bad
+
+
 public class txtToArray
 {
 	/*public static void main(String[] args)
