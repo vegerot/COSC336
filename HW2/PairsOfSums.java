@@ -1,6 +1,6 @@
 public class PairsOfSums
 {
-	public pairs(int[] nums, int t)
+	public int pairs(int[] nums, int t)
 	{
 		int result=0;
 		int head=0;
@@ -16,7 +16,7 @@ public class PairsOfSums
                                         headCnt++;
                                         head++;
                                 }
-                                result+=(headCnt-1)(headCnt-2)/2;
+                                result+=(headCnt-1)*(headCnt-2)/2;
                                 return result;
                         }
 			else if (nums[tail]==t/2)
@@ -26,13 +26,13 @@ public class PairsOfSums
                                         tailCnt++;
                                         tail--;
                                 }
-                                result+=(tailCnt-1)(tailCnt-2)/2;
+                                result+=(tailCnt-1)*(tailCnt-2)/2;
                                 return result;
                         }
 
-			if (nums[head]+nums[tail]>target)
+			if (nums[head]+nums[tail]>t)
 				tail--;
-			else if (nums[head]+nums[tail]<target)
+			else if (nums[head]+nums[tail]<t)
 				head++;
 			else
 			{

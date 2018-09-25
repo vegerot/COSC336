@@ -2,6 +2,10 @@ import java.util.*;
 
 public class MergeSort {
 
+    public static int[] mergeSortList(int[] list)
+    {
+	    return mergeSortList(list, 0, list.length-1);
+    }
     public static int[] mergeSortList(int[] list, int left, int right){
         if(right==left){
             return new int[]{list[left]};
