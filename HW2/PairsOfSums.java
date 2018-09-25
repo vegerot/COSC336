@@ -20,7 +20,7 @@ public class PairsOfSums
                                         headCnt++;
                                         head++;
                                 }
-				result+=headCnt*headCnt;
+				result+=(headCnt-1)(headCnt-2)/2;
 				return result;
 			}
 			else
