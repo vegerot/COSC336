@@ -13,14 +13,23 @@ public class PairsOfSums
 				tail--;
 			else if (nums[head]+nums[tail]<target)
 				head++;
+			else if (nums[head]==t/2)
+			{
+				while (nums[head]==t/2)
+                                {
+                                        headCnt++;
+                                        head++;
+                                }
+				result+=headCnt*headCnt;
+			}
 			else
 			{
-				while (nums[head+1]==nums[head]&&head!=tail)
+				while (nums[head+1]==nums[head]&&head<tail)
 				{
 					headCnt++;
 					head++;
 				}
-				while (nums[tail-1]==nums[tail]&&head!=tail)
+				while (nums[tail-1]==nums[tail]&&head<tail)
 				{
 					tailCnt++;
 					tail--;
