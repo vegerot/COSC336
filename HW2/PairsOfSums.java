@@ -21,6 +21,7 @@ public class PairsOfSums
                                         head++;
                                 }
 				result+=headCnt*headCnt;
+				return result;
 			}
 			else
 			{
