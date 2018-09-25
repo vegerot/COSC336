@@ -5,12 +5,12 @@ public class MergeSort {
 //NOT DONE
 
     public static int[] mergeSortList(int[] list, int left, int right){
-        if(right-left<2){
+        if(right-left<=1){
             System.out.println(list[right]+ ", "+ list[left]+", "+right+", "+left);
                 return new int[]{list[right]};
 
         }else{
-            int middle = left+ (right-1)/2;
+            int middle = left+ (right-1)/2; //shouldn't this be left+(right-left)/2) ?
             int[] sortedLeft = mergeSortList(list, left, middle);
             int[] sortedRight = mergeSortList(list, middle, right);
             
