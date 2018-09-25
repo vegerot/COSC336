@@ -5,8 +5,8 @@ public class PairsOfSums
 		int result=0;
 		int head=0;
 		int tail=nums.length-1;
-		int headCnt=0;
-		int tailCnt=0;
+		int headCnt=1;
+		int tailCnt=1;
 		while (head<tail)
 		{
 			if (nums[head]+nums[tail]>target)
@@ -15,7 +15,6 @@ public class PairsOfSums
 				head++;
 			else
 			{
-				result++;
 				while (nums[head+1]==nums[head]&&head!=tail)
 				{
 					headCnt++;
@@ -30,7 +29,8 @@ public class PairsOfSums
 				result+=headCnt*tailCnt;
 				head++;
 				tail--;
-
+				tailCnt=1;
+				headCnt=1;
 			}
 		}
 		
