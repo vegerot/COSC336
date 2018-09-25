@@ -6,11 +6,11 @@ public class MergeSort {
 
     public static int[] mergeSortList(int[] list, int left, int right){
         if(right-left<=1){
-            System.out.println(list[right]+ ", "+ list[left]+", "+right+", "+left);
-                return new int[]{list[right]};
+            
+                return merge(new int[]{list[left]},new int[]{list[right]});
 
         }else{
-            int middle = left+ (right-1)/2; //shouldn't this be left+(right-left)/2) ?
+            int middle = left+ (right-left)/2; 
             int[] sortedLeft = mergeSortList(list, left, middle);
             int[] sortedRight = mergeSortList(list, middle, right);
             
@@ -23,6 +23,13 @@ public class MergeSort {
         int l=0; 
         int r=0;
         while(l<Left.length&&r<Right.length){
+            System.out.println();
+                System.out.print(merged[0]);
+                for(int i=1;i<merged.length;i++){
+                    System.out.print(", "+merged[i]);
+            }
+                System.out.println();
+            System.out.println(merged[l]+", "+merged[r]+ " "+l +" vs "+ r);
             if(Left[l]<Right[r]){
                 merged[l+r]=Left[l];
                 l++;
@@ -43,7 +50,7 @@ public class MergeSort {
     }
     
     public static void main(String[] args) {
-        int[] fromGetFunc = new int[] {43,2,211,4,2};
+        int[] fromGetFunc = new int[] {1,2,3,4,5,6};
         
         int[] sorted = mergeSortList(fromGetFunc, 0, fromGetFunc.length-1);
         
@@ -52,9 +59,9 @@ public class MergeSort {
         for(int i=1;i<sorted.length;i++){
             System.out.print(", "+sorted[i]);
         }
+        System.out.println();
     }
     
     
     
 }
-
