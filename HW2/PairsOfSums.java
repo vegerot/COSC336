@@ -9,20 +9,31 @@ public class PairsOfSums
 		int tailCnt=1;
 		while (head<tail)
 		{
-			if (nums[head]+nums[tail]>target)
-				tail--;
-			else if (nums[head]+nums[tail]<target)
-				head++;
-			else if (nums[head]==t/2)
-			{
-				while (nums[head]==t/2)
+			if (nums[head]==t/2)
+                        {
+                                while (nums[head]==t/2)
                                 {
                                         headCnt++;
                                         head++;
                                 }
-				result+=(headCnt-1)(headCnt-2)/2;
-				return result;
-			}
+                                result+=(headCnt-1)(headCnt-2)/2;
+                                return result;
+                        }
+			else if (nums[tail]==t/2)
+                        {
+                                while (nums[tail]==t/2)
+                                {
+                                        tailCnt++;
+                                        tail--;
+                                }
+                                result+=(tailCnt-1)(tailCnt-2)/2;
+                                return result;
+                        }
+
+			if (nums[head]+nums[tail]>target)
+				tail--;
+			else if (nums[head]+nums[tail]<target)
+				head++;
 			else
 			{
 				while (nums[head+1]==nums[head]&&head<tail)
