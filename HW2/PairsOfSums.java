@@ -9,7 +9,7 @@ public class PairsOfSums
 		int tailCnt=1;
 		while (head<tail)
 		{
-			if (nums[head]==t/2)
+			if ((double)nums[head]==((double)t)/2)
                         {
                                 while (nums[head]==t/2)
                                 {
@@ -19,7 +19,7 @@ public class PairsOfSums
                                 result+=(headCnt-1)*(headCnt-2)/2;
                                 return result;
                         }
-			else if (nums[tail]==t/2)
+			else if ((double)nums[tail]==((double)t)/2)
                         {
                                 while (nums[tail]==t/2)
                                 {
