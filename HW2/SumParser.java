@@ -24,7 +24,7 @@ public class SumParser
 
 			Scanner fileScanner=new Scanner(new File(fn));
 			size=fileScanner.nextInt();
-			target=fileScanner.nextInt();
+//uncomment this for program 1			target=fileScanner.nextInt();
 			data=new int[size];
 
 			for(int i=0;fileScanner.hasNextInt(); i++)
