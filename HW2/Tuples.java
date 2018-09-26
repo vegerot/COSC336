@@ -2,10 +2,12 @@ import java.util.*;
 
 public class Tuples
 {
+	
 	public static int[] getSumOfPairs(int[] input)
 	{
 		int[] sums=new int[input.length*input.length/2-input.length/2];
 		int pos=0;
+		//O(n^2)
 		for (int i=0; i<input.length; i++)
 		{
 			for (int j=i+1; j<input.length; j++,pos++)
@@ -17,7 +19,7 @@ public class Tuples
 		return sums;
 	}
 
-	public static void main(String[] args)
+	/*public static void main(String[] args)
 	{
 		SumParser test=new SumParser("input-2.1.txt");
 		int[] data=test.getData();
@@ -29,5 +31,5 @@ public class Tuples
 			System.out.print(sums[i]+" ");
 		}
 		System.out.println();
-	}
+	}*/
 }

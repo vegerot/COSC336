@@ -5,6 +5,7 @@ public class MostSums
 		int Max=0;
 		int currentCounter=1;
 		int maxTarget=0;
+		//efficiency=O(arr.length);
 		for (int i=0; i<arr.length-1; i++)
 		{
 			

@@ -2,6 +2,7 @@ import java.util.*;
 
 public class MergeSort {
 
+    //By default, inputting a list will merge sort the whole list
     public static int[] mergeSortList(int[] list)
     {
 	    return mergeSortList(list, 0, list.length-1);
@@ -18,7 +19,7 @@ public class MergeSort {
             return merge(sortedLeft,sortedRight);
         }
     }
-    
+    //nLog(n)
     public static int[] merge(int[] Left,int[] Right){
         int[] merged = new int[Left.length+Right.length];
         int l=0; 
@@ -44,7 +45,9 @@ public class MergeSort {
         return merged;
     }
     
-  /* 
+  
+    //Indepent Tester Method
+    /* 
     public static void main(String[] args) {
         int[] fromGetFunc = new int[] {21,42,83,21,21,21};
         
