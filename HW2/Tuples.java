@@ -21,7 +21,7 @@ public class Tuples
 
 	/*public static void main(String[] args)
 	{
-		SumParser test=new SumParser("input-2.1.txt");
+		SumParser2 test=new SumParser2("input-2.1.txt");
 		int[] data=test.getData();
 
 		int[] sums=getSumOfPairs(data);

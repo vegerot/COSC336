@@ -8,7 +8,7 @@ public class MostSumsTester
 			file=args[0];
 		else
 			file=getInput();
-		SumParser test=new SumParser(file);
+		SumParser2 test=new SumParser2(file);
                 int[] data=test.getData();
 		System.out.print("input data: ");	
 		printArr(data);
@@ -16,7 +16,7 @@ public class MostSumsTester
 
                 int[] sums=new Tuples().getSumOfPairs(data);
 		
-		System.out.print("possible sums: ");
+		//System.out.print("possible sums: ");
 		//printArr(sums);
 		
 		sums=new MergeSort().mergeSortList(sums);

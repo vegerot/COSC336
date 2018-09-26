@@ -4,13 +4,13 @@ public class PairsTester
 {
 	public static void main(String[] args)
 	{
-		//System.out.println(new pairs(mergeSortList(new SumParser("input-1.1.txt").getData())));
+		//System.out.println(new pairs(mergeSortList(new SumParser1("input-1.1.txt").getData())));
                 String file;
                 if (args.length!=0)
                         file=args[0];
                 else
                         file=getInput();
-                SumParser inFile=new SumParser(file);
+                SumParser1 inFile=new SumParser1(file);
 	       	int[] input=inFile.getData();
                 System.out.print("input data: ");
                 printArr(input);

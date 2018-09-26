@@ -4,14 +4,14 @@ import java.util.Scanner;
 
 
 
-public class SumParser
+public class SumParser1
 {
 	private int[] data;
 	private int size;
 	private int target;
 
 
-	public SumParser(String filename)
+	public SumParser1(String filename)
 	{
 		parse(filename);
 	}
