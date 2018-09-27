@@ -21,8 +21,8 @@ public class MostSumsTester
 		
 		sums=new MergeSort().mergeSortList(sums);
 
-                System.out.print("sorted sums: ");
-		printArr(sums);
+                //System.out.print("sorted sums: ");
+		//printArr(sums);
 
 		int answer=new MostSums().getMostSums(sums);
 
