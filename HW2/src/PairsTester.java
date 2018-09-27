@@ -2,7 +2,7 @@
  * 
  * COSC 336-002
  * 
- * Zimand
+ * Professor M. Zimand
  * 
  * Due 9/27/2018
  * 
