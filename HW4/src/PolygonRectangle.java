@@ -66,4 +66,4 @@ public class PolygonRectangle
         System.out.println("Maximum area is " + getMaxArea(hist, hist.length)); 
     } 
 } 
-//This code is Contributed by Sumit Ghosh 
+//This code is largely made by Sumit Ghosh.  Alterations ot conform with COSC336 HW4 by Max Coplan, Sage Isaac, Zach, Andrew
