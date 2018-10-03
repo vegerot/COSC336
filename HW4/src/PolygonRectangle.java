@@ -60,7 +60,10 @@ public class RectArea
       
     // Driver program to test above function 
     public static void main(String[] args)  
-    { 
+    {
+	int[] points=new int[][]{{3, 0}, {3, 1}, {4, 1}, {4, 3}, {6, 3}, {6, 6}, {10, 6}, {10,
+  2}, {13, 2}, {13, 5}, {17, 5}, {17, 1}, {18, 1}, {18, 8}, {20,
+  8}, {20, 0}}; 
         int hist[] = { 6, 2, 5, 4, 5, 1, 6 }; 
         System.out.println("Maximum area is " + getMaxArea(hist, hist.length)); 
     } 
