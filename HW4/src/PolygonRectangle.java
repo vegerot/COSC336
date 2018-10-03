@@ -1,7 +1,7 @@
 //Java program to find maximum rectangular area in linear time 
   
 import java.util.Stack; 
-  
+import java.util.Scanner; 
 public class PolygonRectangle 
 { 
     // The main function to find the maximum rectangular area under given 
@@ -57,11 +57,39 @@ public class PolygonRectangle
         return max_area; 
   
     } 
+
+    public static String getInput()
+  {
+    //=================================
+
+    // Gets filename from user
+
+    //=================================
+
+
+    System.out.print("Input file here: ");
+    Scanner cin=new Scanner(System.in);
+    String file=cin.next();
+    cin.close();
+    return file;
+
+  }
+
       
     // Driver program to test above function 
     public static void main(String[] args)  
     {
-	int[][] points=new int[][]{{3, 0}, {3, 1}, {4, 1}, {4, 3}, {6, 3}, {6, 6},{10, 6}, {10,2}, {13, 2}, {13, 5}, {17, 5}, {17, 1}, {18, 1}, {18, 8}, {20,8}, {20, 0}}; 
+	String basename;
+        if (args.length!=0)
+	      basename=args[0];
+    	else
+              basename=getInput();
+
+
+         String fn="../resources/"+basename;
+
+	int[][] points=new fileParser(fn).getData();
+	//int[][] points=new int[][]{{3, 0}, {3, 1}, {4, 1}, {4, 3}, {6, 3}, {6, 6},{10, 6}, {10,2}, {13, 2}, {13, 5}, {17, 5}, {17, 1}, {18, 1}, {18, 8}, {20,8}, {20, 0}}; 
         int hist[] = pointPadding.Padding(points); 
         System.out.println("Maximum area is " + getMaxArea(hist, hist.length)); 
     } 
