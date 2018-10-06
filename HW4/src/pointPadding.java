@@ -2,8 +2,8 @@ public class pointPadding
 {
 	public static int[] Padding(int[][] unpadded)
 	{
-		int[] padded=new int[unpadded[unpadded.length-1][0]]; //is this the right size?  I get zeroes at the end of padded
-
+		int[] padded=new int[unpadded[unpadded.length-5][0]]; //is this the right size?  I get zeroes at the end of padded
+                                                                      // I changed the unpadded.length to -5 and this makes no more zeros at the end of the padded
 		for (int u=0, p=0; u<unpadded.length-1; u++)
 		{
                 	if (unpadded[u][0]!=unpadded[u+1][0])
