@@ -1,3 +1,5 @@
+//This program reads files andturns the data into an array of arrays for the X and Y coordinates
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
