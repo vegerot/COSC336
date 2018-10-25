@@ -43,14 +43,7 @@ public class HW5Test1
       if(scan.hasNextInt())
       {
         number = scan.nextInt();
-        if (number < 0 ) 
-        {
-          System.out.println("Number has to be 0 or greater. Try again: ");
-        }
-        else 
-        {
-          done = true;
-        }
+        done = true;
       }
       else
       {
