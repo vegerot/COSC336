@@ -56,13 +56,8 @@ public class HW5Test1
   
   public static int lis(int[] array)
   {
-    int[] count = new int[array.length];
     int sum = 0;
     int highestSum = array[0];
-    for (int i = 0; i < count.length; i++)
-    {
-      count[i] = 1;
-    }
     for (int i = 1; i < array.length; i++)
     {
       sum = array[i];
@@ -71,7 +66,7 @@ public class HW5Test1
       {
         if (array[i] > array[j] && array[j] > currentHigh)
         {
-          sum = sum + array[j];
+          sum += array[j];
           currentHigh = array[j];
         }
       }
