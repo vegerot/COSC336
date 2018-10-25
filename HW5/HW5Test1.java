@@ -61,10 +61,10 @@ public class HW5Test1
     for (int i = 1; i < array.length; i++)
     {
       sum = array[i];
-      int currentHigh = 0;
-      for (int j = 0; j < i; j++)
+      int currentHigh = array[i];
+      for (int j = i-1; j >=0; j--)
       {
-        if (array[i] > array[j] && array[j] > currentHigh)
+        if (array[i] >= array[j] && array[j] <= currentHigh)
         {
           sum += array[j];
           currentHigh = array[j];
