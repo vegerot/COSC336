@@ -59,6 +59,7 @@ public class HW5Test1
 	  //0 8 3 5 6 1 9 1 doesn't work
     int sum = 0;
     int highestSum = array[0];
+    System.out.println(highestSum);
     for (int i = 1; i < array.length; i++)
     {
       sum = array[i];
