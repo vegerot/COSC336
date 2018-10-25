@@ -65,7 +65,7 @@ public class HW5Test1
   {
     int[] count = new int[array.length];
     int sum = 0;
-    int highestSum = 0;
+    int highestSum = array[0];
     for (int i = 0; i < count.length; i++)
     {
       count[i] = 1;
