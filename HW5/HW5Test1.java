@@ -56,6 +56,7 @@ public class HW5Test1
   
   public static int lis(int[] array)
   {
+	  //0 8 3 5 6 1 9 1 doesn't work
     int sum = 0;
     int highestSum = array[0];
     for (int i = 1; i < array.length; i++)
