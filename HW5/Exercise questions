@@ -1,0 +1,84 @@
+16.3-2
+Proof that a binary tree that is not full cannot correspond to an optimal prefix code:
+If a Binary tree “T” has a prefix code to represent it the average length is C. but if the code is changed so it is balanced T’ will have a C’ < C. This can be proven by the following:
+If you have a not full binary tree with the outlying piece at height “a” that means either: 
+1.	A pair of leafs at max height “h” >= ”a” of the tree can be split into one leaf becoming the root of what used to be that pair of leafs (at h-1 height) and the other can be paired with the single leaf at “a” this changes height from 2h +a + rest of tree to (h-1)+2a +rest of tree where h>=a. Worst case this means h=a and you have 2a+a compared to (a-1)+2a or 0 compared to -1. Meaning the new tree T’ on average has shorter heights. 
+2.	Otherwise if the outlying piece is at max height “h” it can simply be moved up one level to h-1 as nothing is otherwise attached to prevent this change from making the tree more balanced. And h>h-1 so the new tree T’ has a better average height
+3.	Note, In both cases you could move the outlying piece(s) to their respective roots, changing their height from a to a-1 and decreasing the average, but option 1, if applicable, gives a better average than that overall by also reducing by the difference between a and h as well as -1 so you get a (a-h)-1 lower total and [(a-h)-1]/n rather than -1/n smaller average where n is the number of leafs.
+
+11.3-4 Consider a hash table of size m = 1000 and a corresponding hash function h(k) =[m (kA mod 1)] for A = [(5^.5)- 1]/2. Compute the locations to which the keys 61, 62, 63, 64, and 65 are mapped
+
+h(61)= m{61*[(5^.5)- 1]/2) %1}=m{37.7000733137%1}=1000{.7000733137}=700
+h(61)=700 position
+
+h(62)=1000(38.318107302%1)=318
+h(62)=318
+
+h(63)=1000(38.936141%1)=936
+h(63)=936
+
+h(64)= 1000(39.5541752%1)=554
+h(64)=554
+
+h(65)= 1000(40.1722092%1)=172
+h(65)=172
+
+11.4-1 Consider inserting the keys 10; 22; 31; 4; 15; 28; 17; 88; 59 into a hash table of length m = 11 using open addressing with the auxiliary hash function h’(k)= k Illustrate the result of inserting these keys using linear probing, using quadratic probing with c1 =1 and c2=3 , and using double hashing with h1(k)= k and h2(k)= 1 +[k mod (m – 1)]
+•	Linear
+o	h(10,0)=(h’(k)+i)%m=10%11=10
+o	h(10)=10
+o	h(22,0)=h’(k)%m=22%11=0
+o	h(22)=0
+o	h(31,0)=h’(k)%m=31%11=9
+o	h(31)=9
+o	h(4,0)=h’(k)%m=4%11=4
+o	h(4)=4
+o	h(15,0)=h’(k)%m=15%11=4 – spot is taken
+o	h(15,1)=h’(k)%m=(15+1)%11=5
+o	h(15)=5
+o	h(28,0)=h’(k)%m=28%11=6
+o	h(28)=6
+o	h(17,0)=h’(k)%m=17%11=6 - taken
+o	h(17,1)=h’(k)%m=(17+)%11=7
+o	h(17)=7
+o	h(88,0)=h’(k)%m=88%11=0 - taken
+o	h(88,1)=h’(k)%m=(88+1)%11=1
+o	h(88)=1
+o	h(59,0)=h’(k)%m=59%11=4 - taken
+o	h(59,2)=h’(k)%m=(59+1)%11=5 - taken
+o	h(59,2)=h’(k)%m=(59+2)%11=6 - taken
+o	h(59,2)=h’(k)%m=(59+3)%11=7 - taken
+o	h(59,2)=h’(k)%m=(59+4)%11=8 
+o	h(59,2)=8
+•	Quadratic
+•	h(k,i ) = (h’(k) + c1*i + c2*i^2) mod m 
+o	h(k,i ) = (h’(k) + 1*i + 3*i^2) %11 
+o	h(10,0)= (h’(10) + 0 + 3*0^2) %11=10
+o	h(10)=10
+o	h(22,0)= (h’(22) + 0 + 3*0^2) %11=0
+o	h(22)=0
+o	h(31,0)= (h’(31) + 0 + 3*0^2) %11=9
+o	h(31)=9
+o	h(4,0)= (h’(4) + 0 + 3*0^2) %11=4
+o	h(4)=4
+o	h(15,0)= (h’(15) + 0 + 3*0^2) %11=4 –taken
+o	h(15,1)= (h’(15) + 1 + 3*1^2) %11=8
+o	h(15)=8
+o	h(28,0)= (h’(28) + 0 + 3*0^2) %11=6
+o	h(28)=6
+o	h(17,0)= (h’(17) + 0 + 3*0^2) %11=6 – taken
+o	h(17,1)= (h’(17) + 1+ 3*1^2) %11=10- taken
+o	h(17,2)= (h’(17) + 2 + 3*2^2) %11= (h’(17) + 2 + 3*4) %11=9 – taken
+o	h(17,3)= (h’(17) + 3 + 3*3^2) %11= (h’(17) + 3 + 3*9 %11=3 
+o	h(17)=3
+o	h(88,0)= (h’(88) + 0 + 3*0^2) %11=0-taken
+o	h(88,1)= (h’(88) + 1 + 3*1^2) %11=4-taken
+o	h(88,2)= (h’(88) +2 + 3*4 %11=3-taken
+o	h(88,3)= (h’(88) + 3+ 3*9) %11=8-taken
+o	h(88,4)= (h’(88) + 4 + 3*16) %11=8-taken
+o	h(88,5)= (h’(88) +5 + 3*25) %11=3-taken
+o	h(88,6)= (h’(88) +6 + 3*36) %11=4-taken
+o	h(88,7)= (h’(88) +7 + 3*49) %11=0-taken
+o	h(88,8)= (h’(88) +8 + 3*64) %11=2
+o	h(88)=2
+o	h(59,0)= (h’(59) +0 + 3*0^2) %11
