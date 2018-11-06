@@ -36,7 +36,7 @@ public class Assign6Program {
         int count=0;
         int l=leftBound+1;
         int r=rightBound;
-        while(l<=r){
+        while(l<r){
             
             while(fullList[l]<=pivot && l<rightBound){
                 if(fullList[l]==pivot){
@@ -53,7 +53,7 @@ public class Assign6Program {
                     count++;
             }
             
-            if(r>=leftBound&&l>=rightBound){
+            if(r>leftBound+1&&l>rightBound){
                 fullList[l]+=fullList[r]; 
                 fullList[r]=fullList[l]-fullList[r];
                 fullList[l]-=fullList[r];
