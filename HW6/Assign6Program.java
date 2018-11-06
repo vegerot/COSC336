@@ -8,13 +8,13 @@ public class Assign6Program {
     
     
     public static void main(String[] args) {
-        int[] The  = new int[]{5, 13, 0, 0, 56, 0, 13, 0, 0, 0};
+        int[] list  = new int[]{5, 13, 0, 0, 56, 0, 13, 0, 0, 0};
         
         //initializing to the answer "no"
         OneHalf=false;
         OneThird=false;
         
-       randomSelect(The, The.length, 0);
+       randomSelect(list, list.length, 0);
     }
     
     public static void randomSelect(int[] fullList, int leftBound, int rightBound){
@@ -22,6 +22,8 @@ public class Assign6Program {
         int holder = fullList[pivot];
         fullList[pivot]=fullList[0];
         fullList[0]=fullList[holder];
+        
+        
         
     }
 }
