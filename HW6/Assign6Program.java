@@ -1,5 +1,3 @@
-
-
 package assign.pkg6.program;
 
 
@@ -32,33 +30,45 @@ public class Assign6Program {
         //swaps the pivot with the first element of the group in question
         
         pivot=fullList[leftBound]; 
-        //set pivot to actual pivot value not index of pivot (space efficiency)
+        //set pivot to actual pivot value not index of origional position(space efficiency)
         
+        int count=0;
         int l=leftBound+1;
         int r=rightBound;
         while(l<=r){
-            while(fullList[l]<=pivot){
+            
+            while(fullList[l]<=pivot && l<=rightBound){
+                if(fullList[l]==pivot){
+                    count++;
+                }
                 l++;
             }
-            while(fullList[r]>pivot){
+            
+            while(fullList[r]>pivot && r>leftBound){
                 r--;
             }
-        if(leftBound+l<=rightBound-r){
+            
+            if(fullList[r]==pivot){
+                    count++;
+            }
+            
+            
             fullList[l]+=fullList[r]; 
             fullList[r]=fullList[l]-fullList[r];
             fullList[l]-=fullList[r];
-        }else{
-            fullList[leftBound]+=fullList[r]; 
-            fullList[r]=fullList[leftBound]-fullList[r];
-            fullList[leftBound]-=fullList[r];
             
-            if(r-leftBound>fullList.length/3){
-                randomSelect(fullList, leftBound,r-1);
+            if(l>=r){
+                fullList[leftBound]+=fullList[r]; 
+                fullList[r]=fullList[leftBound]-fullList[r];
+                fullList[leftBound]-=fullList[r];
+
+                if(r-leftBound>fullList.length/3){
+                    randomSelect(fullList, leftBound,r-1);
+                }
+                if(rightBound-r>fullList.length/3){
+                    randomSelect(fullList, r+1,rightBound);
+                }
             }
-            if(rightBound-r>fullList.length/3){
-                randomSelect(fullList, r+1,rightBound);
-            }
-        }
         
             
         }
