@@ -23,7 +23,7 @@ public class Assign6Program {
     }
         
     public static void randomSelect(int[] fullList, int leftBound, int rightBound){
-        int pivot = (int)(fullList.length*Math.random()); 
+        int pivot = (int)((rightBound-leftBound)*Math.random())+leftBound; 
         //index of pivot at this point not actual pivot
         
         fullList[pivot]+=fullList[leftBound]; 
@@ -34,19 +34,30 @@ public class Assign6Program {
         pivot=fullList[leftBound]; 
         //set pivot to actual pivot value not index of pivot (space efficiency)
         
-        int l=0;
-        int r=0;
-        while(leftBound+l<=rightBound-r){
-            while(leftBound+l<=pivot){
+        int l=leftBound+1;
+        int r=rightBound;
+        while(l<=r){
+            while(fullList[l]<=pivot){
                 l++;
             }
-            while(rightBound-r>pivot){
-                r++;
+            while(fullList[r]>pivot){
+                r--;
             }
         if(leftBound+l<=rightBound-r){
-            fullList[leftBound+l]+=fullList[]; 
-        fullList[]=fullList[]-fullList[];
-        fullList[leftBound+l]-=fullList[];
+            fullList[l]+=fullList[r]; 
+            fullList[r]=fullList[l]-fullList[r];
+            fullList[l]-=fullList[r];
+        }else{
+            fullList[leftBound]+=fullList[r]; 
+            fullList[r]=fullList[leftBound]-fullList[r];
+            fullList[leftBound]-=fullList[r];
+            
+            if(r-leftBound>fullList.length/3){
+                randomSelect(fullList, leftBound,r-1);
+            }
+            if(rightBound-r>fullList.length/3){
+                randomSelect(fullList, r+1,rightBound);
+            }
         }
         
             
