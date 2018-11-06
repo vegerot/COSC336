@@ -1,0 +1,903 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     26427,        895]
+NotebookOptionsPosition[     23511,        833]
+NotebookOutlinePosition[     23895,        850]
+CellTagsIndexPosition[     23852,        847]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"arr", "=", 
+  RowBox[{"{", 
+   RowBox[{
+   "45", ",", "98", ",", "3", ",", "82", ",", "132", ",", "71", ",", "72", 
+    ",", "143", ",", "91", ",", "28", ",", "7", ",", "45"}], "}"}]}]], "Input",\
+
+ CellChangeTimes->{{3.750521650855732*^9, 3.750521652957726*^9}, {
+  3.750521725132885*^9, 3.7505217253308983`*^9}, {3.7505219729329443`*^9, 
+  3.75052199523057*^9}},
+ CellLabel->"In[77]:=",ExpressionUUID->"960da345-2954-4915-90bc-ba8d1e4ad3f1"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "45", ",", "98", ",", "3", ",", "82", ",", "132", ",", "71", ",", "72", ",",
+    "143", ",", "91", ",", "28", ",", "7", ",", "45"}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.750521653907773*^9, 3.7505217257798653`*^9, {3.7505219614136047`*^9, 
+   3.750521997603425*^9}},
+ CellLabel->"Out[77]=",ExpressionUUID->"e47adec0-93c2-4d71-9d79-85c12124a7a2"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Length", "[", "arr", "]"}]], "Input",
+ CellChangeTimes->{{3.750521705633502*^9, 3.7505217072132196`*^9}},
+ CellLabel->"In[78]:=",ExpressionUUID->"dbae91b3-a405-4036-9e1e-96fb671cf039"],
+
+Cell[BoxData["12"], "Output",
+ CellChangeTimes->{{3.7505217074819803`*^9, 3.750521731489389*^9}, {
+  3.7505219617066097`*^9, 3.750521997778831*^9}},
+ CellLabel->"Out[78]=",ExpressionUUID->"b85fc2c8-7720-4343-ad9a-0ca18990312f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"arr", "//", "Column"}]], "Input",
+ CellChangeTimes->{{3.750093287158731*^9, 3.7500932884056892`*^9}, {
+  3.7500933978981256`*^9, 3.750093398029429*^9}, {3.750521662012411*^9, 
+  3.7505216622417517`*^9}},
+ CellLabel->"In[79]:=",ExpressionUUID->"a97c2951-207a-440e-9440-d8e973d11a38"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"45"},
+    {"98"},
+    {"3"},
+    {"82"},
+    {"132"},
+    {"71"},
+    {"72"},
+    {"143"},
+    {"91"},
+    {"28"},
+    {"7"},
+    {"45"}
+   },
+   DefaultBaseStyle->"Column",
+   GridBoxAlignment->{"Columns" -> {{Left}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Column"]], "Output",
+ CellChangeTimes->{
+  3.7500932886754513`*^9, 3.750093411056423*^9, 3.750521662698332*^9, 
+   3.750521727577826*^9, {3.750521961822509*^9, 3.7505219978890867`*^9}},
+ CellLabel->"Out[79]=",ExpressionUUID->"cd2308b4-7388-4fa5-9035-7e797c815f76"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"BaseForm", "[", 
+    RowBox[{"#", ",", 
+     RowBox[{
+      RowBox[{"Length", "[", "arr", "]"}], "+", "1"}]}], "]"}], "&"}], "/@", 
+  "arr"}]], "Input",
+ CellChangeTimes->{{3.7500911853866453`*^9, 3.750091217661249*^9}, {
+  3.7500912616827507`*^9, 3.750091267011406*^9}, {3.7500914794320097`*^9, 
+  3.750091485675848*^9}, {3.7500916732678347`*^9, 3.750091704840343*^9}, {
+  3.750091832230198*^9, 3.7500918451465273`*^9}, {3.7500919206005363`*^9, 
+  3.750091943612501*^9}, {3.750092061336967*^9, 3.750092072055067*^9}, {
+  3.750092120132224*^9, 3.750092122648212*^9}, {3.7500934003112507`*^9, 
+  3.7500934029073763`*^9}, {3.7505216654480267`*^9, 3.750521687734543*^9}},
+ CellLabel->"In[80]:=",ExpressionUUID->"0172eb2c-69bf-4959-a30c-d3820e1448fe"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"36\"\>", "\<\"13\"\>"],
+     45,
+     Editable->False],
+    BaseForm[#, 13]& ], ",", 
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"77\"\>", "\<\"13\"\>"],
+     98,
+     Editable->False],
+    BaseForm[#, 13]& ], ",", 
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"3\"\>", "\<\"13\"\>"],
+     3,
+     Editable->False],
+    BaseForm[#, 13]& ], ",", 
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"64\"\>", "\<\"13\"\>"],
+     82,
+     Editable->False],
+    BaseForm[#, 13]& ], ",", 
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"a2\"\>", "\<\"13\"\>"],
+     132,
+     Editable->False],
+    BaseForm[#, 13]& ], ",", 
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"56\"\>", "\<\"13\"\>"],
+     71,
+     Editable->False],
+    BaseForm[#, 13]& ], ",", 
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"57\"\>", "\<\"13\"\>"],
+     72,
+     Editable->False],
+    BaseForm[#, 13]& ], ",", 
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"b0\"\>", "\<\"13\"\>"],
+     143,
+     Editable->False],
+    BaseForm[#, 13]& ], ",", 
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"70\"\>", "\<\"13\"\>"],
+     91,
+     Editable->False],
+    BaseForm[#, 13]& ], ",", 
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"22\"\>", "\<\"13\"\>"],
+     28,
+     Editable->False],
+    BaseForm[#, 13]& ], ",", 
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"7\"\>", "\<\"13\"\>"],
+     7,
+     Editable->False],
+    BaseForm[#, 13]& ], ",", 
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"36\"\>", "\<\"13\"\>"],
+     45,
+     Editable->False],
+    BaseForm[#, 13]& ]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.7500934034089737`*^9, 3.750093467573132*^9, 3.7505216882588587`*^9, 
+   3.7505217341138573`*^9, {3.750521961938925*^9, 3.750521998021319*^9}},
+ CellLabel->"Out[80]=",ExpressionUUID->"504e73e0-4f91-425d-9950-7e403dcd4f84"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"%", "//", "Column"}]], "Input",
+ CellChangeTimes->{{3.7500934684121*^9, 3.750093471490498*^9}},
+ CellLabel->"In[81]:=",ExpressionUUID->"854d073c-09e2-4d4b-b692-dbaafa998356"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"36\"\>", "\<\"13\"\>"],
+       45,
+       Editable->False],
+      BaseForm[#, 13]& ]},
+    {
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"77\"\>", "\<\"13\"\>"],
+       98,
+       Editable->False],
+      BaseForm[#, 13]& ]},
+    {
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"3\"\>", "\<\"13\"\>"],
+       3,
+       Editable->False],
+      BaseForm[#, 13]& ]},
+    {
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"64\"\>", "\<\"13\"\>"],
+       82,
+       Editable->False],
+      BaseForm[#, 13]& ]},
+    {
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"a2\"\>", "\<\"13\"\>"],
+       132,
+       Editable->False],
+      BaseForm[#, 13]& ]},
+    {
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"56\"\>", "\<\"13\"\>"],
+       71,
+       Editable->False],
+      BaseForm[#, 13]& ]},
+    {
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"57\"\>", "\<\"13\"\>"],
+       72,
+       Editable->False],
+      BaseForm[#, 13]& ]},
+    {
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"b0\"\>", "\<\"13\"\>"],
+       143,
+       Editable->False],
+      BaseForm[#, 13]& ]},
+    {
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"70\"\>", "\<\"13\"\>"],
+       91,
+       Editable->False],
+      BaseForm[#, 13]& ]},
+    {
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"22\"\>", "\<\"13\"\>"],
+       28,
+       Editable->False],
+      BaseForm[#, 13]& ]},
+    {
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"7\"\>", "\<\"13\"\>"],
+       7,
+       Editable->False],
+      BaseForm[#, 13]& ]},
+    {
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"36\"\>", "\<\"13\"\>"],
+       45,
+       Editable->False],
+      BaseForm[#, 13]& ]}
+   },
+   DefaultBaseStyle->"Column",
+   GridBoxAlignment->{"Columns" -> {{Left}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Column"]], "Output",
+ CellChangeTimes->{
+  3.750093471791045*^9, 3.75052169972095*^9, 3.750521736970318*^9, {
+   3.750521962050544*^9, 3.750521998133821*^9}},
+ CellLabel->"Out[81]=",ExpressionUUID->"c63883f9-af79-43fa-9890-d1c50f39a1bd"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"BaseForm", "[", 
+    RowBox[{"#", ",", 
+     RowBox[{
+      RowBox[{"Length", "[", "arr", "]"}], "+", "1"}]}], "]"}], "&"}], "/@", 
+  RowBox[{"SortBy", "[", 
+   RowBox[{"arr", ",", " ", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"IntegerDigits", "[", 
+       RowBox[{"#", ",", 
+        RowBox[{"MixedRadix", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Length", "[", "arr", "]"}], "+", "1"}], "}"}], "]"}], ",",
+         "2"}], "]"}], "[", 
+      RowBox[{"[", "2", "]"}], "]"}], "&"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.750092277937702*^9, 3.750092294322537*^9}, {
+   3.750092480780657*^9, 3.750092501715488*^9}, 3.750092539055661*^9, {
+   3.750092610777417*^9, 3.750092610869604*^9}, {3.750092648261331*^9, 
+   3.7500926537238073`*^9}, 3.7500926908706837`*^9, {3.7500927449978952`*^9, 
+   3.750092749495784*^9}, {3.750093414920233*^9, 3.7500934275275593`*^9}, {
+   3.750093499745879*^9, 3.750093513852385*^9}, {3.750093650171974*^9, 
+   3.75009365036775*^9}, {3.750521739098291*^9, 3.75052176289112*^9}},
+ CellLabel->"In[82]:=",ExpressionUUID->"b3dd427a-e518-4424-aed7-159464f7b73c"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"70\"\>", "\<\"13\"\>"],
+     91,
+     Editable->False],
+    BaseForm[#, 13]& ], ",", 
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"b0\"\>", "\<\"13\"\>"],
+     143,
+     Editable->False],
+    BaseForm[#, 13]& ], ",", 
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"22\"\>", "\<\"13\"\>"],
+     28,
+     Editable->False],
+    BaseForm[#, 13]& ], ",", 
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"a2\"\>", "\<\"13\"\>"],
+     132,
+     Editable->False],
+    BaseForm[#, 13]& ], ",", 
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"3\"\>", "\<\"13\"\>"],
+     3,
+     Editable->False],
+    BaseForm[#, 13]& ], ",", 
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"64\"\>", "\<\"13\"\>"],
+     82,
+     Editable->False],
+    BaseForm[#, 13]& ], ",", 
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"36\"\>", "\<\"13\"\>"],
+     45,
+     Editable->False],
+    BaseForm[#, 13]& ], ",", 
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"36\"\>", "\<\"13\"\>"],
+     45,
+     Editable->False],
+    BaseForm[#, 13]& ], ",", 
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"56\"\>", "\<\"13\"\>"],
+     71,
+     Editable->False],
+    BaseForm[#, 13]& ], ",", 
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"7\"\>", "\<\"13\"\>"],
+     7,
+     Editable->False],
+    BaseForm[#, 13]& ], ",", 
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"57\"\>", "\<\"13\"\>"],
+     72,
+     Editable->False],
+    BaseForm[#, 13]& ], ",", 
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"77\"\>", "\<\"13\"\>"],
+     98,
+     Editable->False],
+    BaseForm[#, 13]& ]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.75009227414255*^9, 3.750092488336651*^9, 3.7500925395032253`*^9, 
+   3.750092611333797*^9, 3.750092648788618*^9, 3.750092691199869*^9, 
+   3.750092749881806*^9, {3.750093419704199*^9, 3.750093428004972*^9}, {
+   3.750093478552741*^9, 3.750093514519904*^9}, 3.750093652289783*^9, 
+   3.750521764832781*^9, 3.75052186519235*^9, {3.750521962167191*^9, 
+   3.750521998249632*^9}},
+ CellLabel->"Out[82]=",ExpressionUUID->"8985bb47-5f30-4a69-b3f6-7bf72c419429"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"%", "//", "Column"}]], "Input",
+ CellChangeTimes->{{3.7500934801792917`*^9, 3.750093482085994*^9}},
+ CellLabel->"In[83]:=",ExpressionUUID->"d0a307b1-5eb4-4727-b6fb-f8aab9f048e3"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"70\"\>", "\<\"13\"\>"],
+       91,
+       Editable->False],
+      BaseForm[#, 13]& ]},
+    {
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"b0\"\>", "\<\"13\"\>"],
+       143,
+       Editable->False],
+      BaseForm[#, 13]& ]},
+    {
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"22\"\>", "\<\"13\"\>"],
+       28,
+       Editable->False],
+      BaseForm[#, 13]& ]},
+    {
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"a2\"\>", "\<\"13\"\>"],
+       132,
+       Editable->False],
+      BaseForm[#, 13]& ]},
+    {
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"3\"\>", "\<\"13\"\>"],
+       3,
+       Editable->False],
+      BaseForm[#, 13]& ]},
+    {
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"64\"\>", "\<\"13\"\>"],
+       82,
+       Editable->False],
+      BaseForm[#, 13]& ]},
+    {
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"36\"\>", "\<\"13\"\>"],
+       45,
+       Editable->False],
+      BaseForm[#, 13]& ]},
+    {
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"36\"\>", "\<\"13\"\>"],
+       45,
+       Editable->False],
+      BaseForm[#, 13]& ]},
+    {
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"56\"\>", "\<\"13\"\>"],
+       71,
+       Editable->False],
+      BaseForm[#, 13]& ]},
+    {
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"7\"\>", "\<\"13\"\>"],
+       7,
+       Editable->False],
+      BaseForm[#, 13]& ]},
+    {
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"57\"\>", "\<\"13\"\>"],
+       72,
+       Editable->False],
+      BaseForm[#, 13]& ]},
+    {
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"77\"\>", "\<\"13\"\>"],
+       98,
+       Editable->False],
+      BaseForm[#, 13]& ]}
+   },
+   DefaultBaseStyle->"Column",
+   GridBoxAlignment->{"Columns" -> {{Left}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Column"]], "Output",
+ CellChangeTimes->{{3.750093482689035*^9, 3.750093517101254*^9}, 
+   3.750093654201614*^9, 3.750521866563249*^9, {3.750521962301824*^9, 
+   3.750521998365179*^9}},
+ CellLabel->"Out[83]=",ExpressionUUID->"4591995d-9225-46c8-969a-aa13c53f85a2"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"BaseForm", "[", 
+    RowBox[{"#", ",", 
+     RowBox[{
+      RowBox[{"Length", "[", "arr", "]"}], "+", "1"}]}], "]"}], "&"}], "/@", 
+  RowBox[{"SortBy", "[", 
+   RowBox[{
+    RowBox[{"SortBy", "[", 
+     RowBox[{"arr", ",", " ", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"IntegerDigits", "[", 
+         RowBox[{"#", ",", 
+          RowBox[{"MixedRadix", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Length", "[", "arr", "]"}], "+", "1"}], "}"}], "]"}], 
+          ",", "2"}], "]"}], "[", 
+        RowBox[{"[", "2", "]"}], "]"}], "&"}]}], "]"}], ",", " ", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"IntegerDigits", "[", 
+       RowBox[{"#", ",", 
+        RowBox[{"MixedRadix", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Length", "[", "arr", "]"}], "+", "1"}], "}"}], "]"}], ",",
+         "2"}], "]"}], "[", 
+      RowBox[{"[", "1", "]"}], "]"}], "&"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.750092694355191*^9, 3.750092738079297*^9}, {
+  3.750093093526822*^9, 3.75009313732277*^9}, {3.7500934367977867`*^9, 
+  3.750093437947796*^9}, {3.750093526111052*^9, 3.750093535168727*^9}, {
+  3.750093658525097*^9, 3.7500936586536913`*^9}, {3.750521841868753*^9, 
+  3.7505218563953133`*^9}},
+ CellLabel->"In[84]:=",ExpressionUUID->"7123ea16-3d33-4290-9e16-fe28b4e370a0"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"3\"\>", "\<\"13\"\>"],
+     3,
+     Editable->False],
+    BaseForm[#, 13]& ], ",", 
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"7\"\>", "\<\"13\"\>"],
+     7,
+     Editable->False],
+    BaseForm[#, 13]& ], ",", 
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"22\"\>", "\<\"13\"\>"],
+     28,
+     Editable->False],
+    BaseForm[#, 13]& ], ",", 
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"36\"\>", "\<\"13\"\>"],
+     45,
+     Editable->False],
+    BaseForm[#, 13]& ], ",", 
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"36\"\>", "\<\"13\"\>"],
+     45,
+     Editable->False],
+    BaseForm[#, 13]& ], ",", 
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"56\"\>", "\<\"13\"\>"],
+     71,
+     Editable->False],
+    BaseForm[#, 13]& ], ",", 
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"57\"\>", "\<\"13\"\>"],
+     72,
+     Editable->False],
+    BaseForm[#, 13]& ], ",", 
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"64\"\>", "\<\"13\"\>"],
+     82,
+     Editable->False],
+    BaseForm[#, 13]& ], ",", 
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"70\"\>", "\<\"13\"\>"],
+     91,
+     Editable->False],
+    BaseForm[#, 13]& ], ",", 
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"77\"\>", "\<\"13\"\>"],
+     98,
+     Editable->False],
+    BaseForm[#, 13]& ], ",", 
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"a2\"\>", "\<\"13\"\>"],
+     132,
+     Editable->False],
+    BaseForm[#, 13]& ], ",", 
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"b0\"\>", "\<\"13\"\>"],
+     143,
+     Editable->False],
+    BaseForm[#, 13]& ]}], "}"}]], "Output",
+ CellChangeTimes->{{3.75009270541814*^9, 3.750092740330459*^9}, {
+   3.750093095775999*^9, 3.750093109881798*^9}, 3.750093143530875*^9, 
+   3.7500934449755373`*^9, {3.750093535620614*^9, 3.7500935406862307`*^9}, 
+   3.750093659186358*^9, {3.750521856887394*^9, 3.750521868666341*^9}, {
+   3.750521962433509*^9, 3.75052199848307*^9}},
+ CellLabel->"Out[84]=",ExpressionUUID->"eea0dff7-5d5a-4f42-8205-afea01d1c723"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"%", "//", "Column"}]], "Input",
+ CellChangeTimes->{{3.750093541784545*^9, 3.750093543804173*^9}},
+ CellLabel->"In[85]:=",ExpressionUUID->"698bf62b-485c-4f71-8297-0ab4393a69dd"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"3\"\>", "\<\"13\"\>"],
+       3,
+       Editable->False],
+      BaseForm[#, 13]& ]},
+    {
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"7\"\>", "\<\"13\"\>"],
+       7,
+       Editable->False],
+      BaseForm[#, 13]& ]},
+    {
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"22\"\>", "\<\"13\"\>"],
+       28,
+       Editable->False],
+      BaseForm[#, 13]& ]},
+    {
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"36\"\>", "\<\"13\"\>"],
+       45,
+       Editable->False],
+      BaseForm[#, 13]& ]},
+    {
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"36\"\>", "\<\"13\"\>"],
+       45,
+       Editable->False],
+      BaseForm[#, 13]& ]},
+    {
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"56\"\>", "\<\"13\"\>"],
+       71,
+       Editable->False],
+      BaseForm[#, 13]& ]},
+    {
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"57\"\>", "\<\"13\"\>"],
+       72,
+       Editable->False],
+      BaseForm[#, 13]& ]},
+    {
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"64\"\>", "\<\"13\"\>"],
+       82,
+       Editable->False],
+      BaseForm[#, 13]& ]},
+    {
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"70\"\>", "\<\"13\"\>"],
+       91,
+       Editable->False],
+      BaseForm[#, 13]& ]},
+    {
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"77\"\>", "\<\"13\"\>"],
+       98,
+       Editable->False],
+      BaseForm[#, 13]& ]},
+    {
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"a2\"\>", "\<\"13\"\>"],
+       132,
+       Editable->False],
+      BaseForm[#, 13]& ]},
+    {
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"b0\"\>", "\<\"13\"\>"],
+       143,
+       Editable->False],
+      BaseForm[#, 13]& ]}
+   },
+   DefaultBaseStyle->"Column",
+   GridBoxAlignment->{"Columns" -> {{Left}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Column"]], "Output",
+ CellChangeTimes->{
+  3.7500935440906687`*^9, 3.7500936605482683`*^9, {3.750521861535884*^9, 
+   3.7505218699501867`*^9}, {3.750521962630912*^9, 3.7505219986224203`*^9}},
+ CellLabel->"Out[85]=",ExpressionUUID->"7bb29d2b-cd3c-4fbd-b7a1-5cce03036cf2"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"SortBy", "[", 
+  RowBox[{
+   RowBox[{"SortBy", "[", 
+    RowBox[{"arr", ",", " ", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"IntegerDigits", "[", 
+        RowBox[{"#", ",", 
+         RowBox[{"MixedRadix", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Length", "[", "arr", "]"}], "+", "1"}], "}"}], "]"}], 
+         ",", "2"}], "]"}], "[", 
+       RowBox[{"[", "2", "]"}], "]"}], "&"}]}], "]"}], ",", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"IntegerDigits", "[", 
+      RowBox[{"#", ",", 
+       RowBox[{"MixedRadix", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Length", "[", "arr", "]"}], "+", "1"}], "}"}], "]"}], ",", 
+       "2"}], "]"}], "[", 
+     RowBox[{"[", "1", "]"}], "]"}], "&"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.750092694355191*^9, 3.750092738079297*^9}, {
+  3.750093093526822*^9, 3.75009313732277*^9}, {3.75009323558619*^9, 
+  3.750093238427058*^9}, {3.7500934487995243`*^9, 3.750093449849544*^9}, {
+  3.750093664229577*^9, 3.750093664558447*^9}, {3.750521874977619*^9, 
+  3.750521885385255*^9}},
+ CellLabel->"In[86]:=",ExpressionUUID->"c89d63b0-30c3-4057-a3cd-88f7cf28a278"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "3", ",", "7", ",", "28", ",", "45", ",", "45", ",", "71", ",", "72", ",", 
+   "82", ",", "91", ",", "98", ",", "132", ",", "143"}], "}"}]], "Output",
+ CellChangeTimes->{{3.75009270541814*^9, 3.750092740330459*^9}, {
+   3.750093095775999*^9, 3.750093109881798*^9}, 3.750093143530875*^9, 
+   3.750093238740593*^9, 3.750093450869957*^9, {3.750093538133588*^9, 
+   3.750093545816608*^9}, 3.7500936649186373`*^9, 3.750521885894579*^9, {
+   3.750521939015688*^9, 3.7505219988275633`*^9}},
+ CellLabel->"Out[86]=",ExpressionUUID->"291155d2-ef2a-4ee3-beff-f469a07d39d1"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"%", "//", "Column"}]], "Input",
+ CellChangeTimes->{{3.7500935467884912`*^9, 3.750093548397105*^9}},
+ CellLabel->"In[87]:=",ExpressionUUID->"5b8815be-ad0a-4456-84c9-3d6c19cd0ab6"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"3"},
+    {"7"},
+    {"28"},
+    {"45"},
+    {"45"},
+    {"71"},
+    {"72"},
+    {"82"},
+    {"91"},
+    {"98"},
+    {"132"},
+    {"143"}
+   },
+   DefaultBaseStyle->"Column",
+   GridBoxAlignment->{"Columns" -> {{Left}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Column"]], "Output",
+ CellChangeTimes->{
+  3.7500935487219877`*^9, 3.7500936665985727`*^9, 3.750521890452817*^9, {
+   3.7505219447410183`*^9, 3.750521999005261*^9}},
+ CellLabel->"Out[87]=",ExpressionUUID->"79741d14-21ef-4f5a-9ec2-029f63c32d1d"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"OrderedQ", "[", "%%", "]"}]], "Input",
+ CellChangeTimes->{{3.750521946366824*^9, 3.750521953817625*^9}},
+ CellLabel->"In[88]:=",ExpressionUUID->"a0c9592d-bd1e-492a-bc1e-e1d19a274c98"],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{{3.750521954213092*^9, 3.7505219991383743`*^9}},
+ CellLabel->"Out[88]=",ExpressionUUID->"7c5df4e1-fd1e-481e-b091-189d06131179"]
+}, Open  ]]
+},
+WindowSize->{852, 905},
+WindowMargins->{{62, Automatic}, {4, Automatic}},
+Magnification:>1.25 Inherited,
+FrontEndVersion->"11.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 5, \
+2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 467, 10, 37, "Input",ExpressionUUID->"960da345-2954-4915-90bc-ba8d1e4ad3f1"],
+Cell[1050, 34, 392, 8, 42, "Output",ExpressionUUID->"e47adec0-93c2-4d71-9d79-85c12124a7a2"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1479, 47, 208, 3, 37, "Input",ExpressionUUID->"dbae91b3-a405-4036-9e1e-96fb671cf039"],
+Cell[1690, 52, 227, 3, 42, "Output",ExpressionUUID->"b85fc2c8-7720-4343-ad9a-0ca18990312f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1954, 60, 306, 5, 37, "Input",ExpressionUUID->"a97c2951-207a-440e-9440-d8e973d11a38"],
+Cell[2263, 67, 601, 22, 281, "Output",ExpressionUUID->"cd2308b4-7388-4fa5-9035-7e797c815f76"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2901, 94, 794, 15, 37, "Input",ExpressionUUID->"0172eb2c-69bf-4959-a30c-d3820e1448fe"],
+Cell[3698, 111, 2013, 78, 42, "Output",ExpressionUUID->"504e73e0-4f91-425d-9950-7e403dcd4f84"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5748, 194, 198, 3, 37, "Input",ExpressionUUID->"854d073c-09e2-4d4b-b692-dbaafa998356"],
+Cell[5949, 199, 2300, 94, 281, "Output",ExpressionUUID->"c63883f9-af79-43fa-9890-d1c50f39a1bd"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8286, 298, 1162, 26, 64, "Input",ExpressionUUID->"b3dd427a-e518-4424-aed7-159464f7b73c"],
+Cell[9451, 326, 2247, 82, 42, "Output",ExpressionUUID->"8985bb47-5f30-4a69-b3f6-7bf72c419429"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11735, 413, 202, 3, 37, "Input",ExpressionUUID->"d0a307b1-5eb4-4727-b6fb-f8aab9f048e3"],
+Cell[11940, 418, 2326, 94, 281, "Output",ExpressionUUID->"4591995d-9225-46c8-969a-aa13c53f85a2"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14303, 517, 1370, 36, 116, "Input",ExpressionUUID->"7123ea16-3d33-4290-9e16-fe28b4e370a0"],
+Cell[15676, 555, 2180, 80, 42, "Output",ExpressionUUID->"eea0dff7-5d5a-4f42-8205-afea01d1c723"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17893, 640, 200, 3, 37, "Input",ExpressionUUID->"698bf62b-485c-4f71-8297-0ab4393a69dd"],
+Cell[18096, 645, 2333, 94, 281, "Output",ExpressionUUID->"7bb29d2b-cd3c-4fbd-b7a1-5cce03036cf2"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20466, 744, 1174, 30, 90, "Input",ExpressionUUID->"c89d63b0-30c3-4057-a3cd-88f7cf28a278"],
+Cell[21643, 776, 604, 10, 42, "Output",ExpressionUUID->"291155d2-ef2a-4ee3-beff-f469a07d39d1"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[22284, 791, 202, 3, 37, "Input",ExpressionUUID->"5b8815be-ad0a-4456-84c9-3d6c19cd0ab6"],
+Cell[22489, 796, 581, 22, 281, "Output",ExpressionUUID->"79741d14-21ef-4f5a-9ec2-029f63c32d1d"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[23107, 823, 207, 3, 37, "Input",ExpressionUUID->"a0c9592d-bd1e-492a-bc1e-e1d19a274c98"],
+Cell[23317, 828, 178, 2, 42, "Output",ExpressionUUID->"7c5df4e1-fd1e-481e-b091-189d06131179"]
+}, Open  ]]
+}
+]
+*)
+
