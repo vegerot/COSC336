@@ -8,11 +8,8 @@ public class Assign6Program {
     
     
     public static void main(String[] args) {
-<<<<<<< HEAD
         int[] list = new int[]{5, 13, 0, 0, 56, 0, 13, 0, 0, 0};
-=======
         int[] list  = new int[]{5, 13, 0, 0, 56, 0, 13, 0, 0, 0};
->>>>>>> 0d4f67ab6ea01b35104c47c3de71b888dfda3265
         
         //initializing to the answer "no"
         OneHalf=false;
