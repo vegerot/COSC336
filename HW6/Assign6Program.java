@@ -15,8 +15,12 @@ public class Assign6Program {
         OneHalf=false;
         OneThird=false;
         
-       randomSelect(list, list.length, 0);
+       randomSelect(list);
     }
+	public static void randomSelect(int[] list){
+		randomSelect(list, list.length, 0)
+	
+	}
     
     public static void randomSelect(int[] fullList, int leftBound, int rightBound){
         int pivot = (int)(fullList.length*Math.random());
