@@ -1,3 +1,4 @@
+
 package assign.pkg6.program;
 
 
@@ -37,7 +38,7 @@ public class Assign6Program {
         int r=rightBound;
         while(l<=r){
             
-            while(fullList[l]<=pivot && l<=rightBound){
+            while(fullList[l]<=pivot && l<rightBound){
                 if(fullList[l]==pivot){
                     count++;
                 }
@@ -52,25 +53,27 @@ public class Assign6Program {
                     count++;
             }
             
-            
-            fullList[l]+=fullList[r]; 
-            fullList[r]=fullList[l]-fullList[r];
-            fullList[l]-=fullList[r];
-            
-            if(l>=r){
-                fullList[leftBound]+=fullList[r]; 
-                fullList[r]=fullList[leftBound]-fullList[r];
-                fullList[leftBound]-=fullList[r];
-
-                if(r-leftBound>fullList.length/3){
-                    randomSelect(fullList, leftBound,r-1);
-                }
-                if(rightBound-r>fullList.length/3){
-                    randomSelect(fullList, r+1,rightBound);
-                }
+            if(r>=leftBound&&l>=rightBound){
+                fullList[l]+=fullList[r]; 
+                fullList[r]=fullList[l]-fullList[r];
+                fullList[l]-=fullList[r];
             }
+                        
         
             
+        }
+        if(r>=leftBound){
+            fullList[leftBound]+=fullList[r]; 
+            fullList[r]=fullList[leftBound]-fullList[r];
+            fullList[leftBound]-=fullList[r];
+        }
+//if it did not find anything that should be on the right, only the pointer belongs on the left
+
+        if(r-leftBound>fullList.length/3){
+            randomSelect(fullList, leftBound,r-1);
+        }
+        if(rightBound-r>fullList.length/3){
+            randomSelect(fullList, r+1,rightBound);
         }
         
     }
