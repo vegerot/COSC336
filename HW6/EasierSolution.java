@@ -1,4 +1,5 @@
 //Easier BUT WORSE
+import java.util.*;
 public class EasierSolution
 {
 	public static String getInput()
@@ -26,33 +27,89 @@ public class EasierSolution
         	else
                 	basename=getInput();
 		int[] list=new fileParser(basename).getData();
+		
+		boolean[] occurances=occurance(list);
+
+		for (int i=0; i<2; i++)
+			System.out.println(occurances[i]);
+
 	}
 
-	public boolean[] occurance(int[] list)
+	public static boolean[] occurance(int[] list)
 	{
+		int tries=0;
 		boolean third=false;
 		boolean half=false;
-		int random=randomElement(list);
-		for (int i=0; i<list.length;i++)
-		{
-			int cntr=0;
-			if (list[i]==random)
-				cntr++;
-			if (cntr>=Math.ceiling(list.length/3))
-			{
-				third=true;
-				if (cntr>=Math.ceiling(list.length/2)
-				{
-					return {true,true};
-				}
-			}
+		int[] alreadyPicked=new int[list.length+1];
 
+		int random=randomElement(list,alreadyPicked);
+
+		
+		alreadyPicked[tries]=random;
+
+		while (tries<=Math.ceil(2*list.length/3))
+		//while (tries<list.length)
+		{
+			tries++;
+			//System.out.println("tries: "+tries);
+			System.out.println((float)tries/list.length);
+			int cntr=0;	
+			for (int i=0; i<list.length;i++)
+			{
+				//System.out.println("i: "+i);
+				if (list[i]==random)
+					cntr++;
+				//System.out.println(cntr);
+				if (cntr>Math.ceil(list.length/3))
+				{
+					//System.out.println("THIRD");
+					third=true;
+					if (cntr>Math.ceil(list.length/2))
+					{
+						//System.out.println("HALF");
+						return new boolean[]{true,true};
+					}
+				}
+
+			}
+			random=randomElement(list,alreadyPicked);
+                        alreadyPicked[tries]=random;
+			//System.out.println("tries: "+tries);
 		}
-		return {third,false};
+		return new boolean[]{third,false};
 	}
 
-	public int randomElement(int[] list)
+	public static int randomElement(int[] list, int[] alreadyPicked)
 	{
-		return list[new Random().nextInt(list.length)];
+		boolean success=true;
+		int random;
+		/*do
+		{
+			success=true;
+			random=list[new Random().nextInt(list.length)];
+			for (int i=0; i<alreadyPicked.length; i++)
+			{
+				System.out.println("Does "+random+" = "+alreadyPicked[i]+" = "+(random==alreadyPicked[i]));
+				if (random==alreadyPicked[i])
+				{	
+					success=false;
+				}	
+			}
+		} while (success==false);*/
+		/*do 
+		{*/
+			random=list[new Random().nextInt(list.length)];
+		/*} while(!elementOf(alreadyPicked,random));*/
+		return random;
+	}
+
+	public static boolean elementOf(int[] list, int element)
+	{
+		for (int i=0; i<list.length; i++)
+		{
+			if (element==list[i])
+				return false;
+		}
+		return true;
 	}
 }
