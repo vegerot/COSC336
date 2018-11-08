@@ -1,5 +1,9 @@
-
-package assign.pkg6.program;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package assign6program;
 
 
 public class Assign6Program {
@@ -8,85 +12,118 @@ public class Assign6Program {
     
     
     public static void main(String[] args) {
-        int[] list  = new int[]{5, 13, 0, 0, 56, 0, 13, 0, 0, 0};
+        int[] list  = new int[]{1,1,5,4};
         
         //initializing to the answer "no"
         OneHalf=false;
         OneThird=false;
         
        randomSelect(list);
+       
+       if(OneThird){
+           if(OneHalf){
+               System.out.println("Yes");
+           }else{
+               System.out.println("No");
+           }
+           System.out.println("Yes");
+       }else{
+           System.out.println("No \nNo");
+       }
     }
+    
+    
+    
+    
     public static void randomSelect(int[] list){
-        randomSelect(list, 0,list.length);
-
+        randomSelect(list, 0,list.length-1);
     }
         
+    
+    
+    
     public static void randomSelect(int[] fullList, int leftBound, int rightBound){
         int pivot = (int)((rightBound-leftBound)*Math.random())+leftBound; 
         //index of pivot at this point not actual pivot
         
-        fullList[pivot]+=fullList[leftBound]; 
-        fullList[leftBound]=fullList[pivot]-fullList[leftBound];
-        fullList[pivot]-=fullList[leftBound];
+        boolean thisPivotIsOneThird=false;
+        
+        int holder =fullList[leftBound];
+        fullList[leftBound]=fullList[pivot];
+        fullList[pivot]=holder;
         //swaps the pivot with the first element of the group in question
         
         pivot=fullList[leftBound]; 
         //set pivot to actual pivot value not index of origional position(space efficiency)
         
-        int count=0;
+        /*Testing code bellow*/
+        for(int a=0;a<fullList.length;a++){
+        System.out.println(fullList[a]);
+        }
+        /*Testing code above*/
+        
+        double count=1;
         int l=leftBound+1;
         int r=rightBound;
+        
+        /*Testing code bellow*/
+        System.out.println (pivot+"=pivot");
+        System.out.println(leftBound+"=leftBound");
+        System.out.println(rightBound+"=rightBound\nStart\n");
+        /*Testing code above*/
+        
         while(l<r){
             
-            while(fullList[l]<=pivot && l<rightBound){
+            while(l<fullList.length&&fullList[l]<=pivot && l<=rightBound){
                 if(fullList[l]==pivot){
                     count++;
+                    /*Testing code bellow*/
+                    for(int a=0;a<fullList.length;a++){
+                        System.out.println(fullList[a]);
+                    }
+                    System.out.println("end of list "+count);
+                    /*Testing code above*/
                 }
                 l++;
+                System.out.println(l+"=l");
             }
             
-            while(fullList[r]>pivot && r>leftBound){
+            while(r>-1&&fullList[r]>pivot && r>=leftBound){
                 r--;
+                System.out.println(r+"=r");
             }
             
-            if(fullList[r]==pivot){
-                    count++;
-            }
             
-            if(r>leftBound+1&&l>rightBound&&r>l){
-                fullList[l]+=fullList[r]; 
-                fullList[r]=fullList[l]-fullList[r];
-                fullList[l]-=fullList[r];
-            }
-        }
-        
-        if(r>=leftBound){
-            fullList[leftBound]+=fullList[r]; 
-            fullList[r]=fullList[leftBound]-fullList[r];
-            fullList[leftBound]-=fullList[r];
-        }
-//if it did not find anything that should be on the right, only the pointer belongs on the left
-        
+            holder =fullList[r];
+            fullList[r]=fullList[leftBound];
+            fullList[leftBound]=holder;
+            //swaps the pivot with the first element of the group in question
 
-        if (count>fullList.length/3){
+        }
+             
+
+        if (count>fullList.length/3.0){
             OneThird=true;
-            if(count>fullList.length/2){
+            thisPivotIsOneThird=true;
+            if(count>fullList.length/2.0){
                 OneHalf=true;
                 return;
             }
         }
         
-        if(r-leftBound>fullList.length/3){
-            if(OneThird){
-                ClearLeft(fullList, leftBound,r, pointer);   
+        if((r-leftBound)>(fullList.length/3.0)){
+            if(thisPivotIsOneThird){
+                ClearLeft(fullList, leftBound,r, pivot);   
             }
-//remove value of pointer from list when one third but not one half has occured
-            
+            /*remove value of pointer from list when one third but not 
+            one half has occured. Should only fire when we need to make sure the
+            current pointer is not reused repeatedly and 
+            */       
             else{
                 randomSelect(fullList, leftBound,r-1);
             }
         }
-        if(rightBound-r>fullList.length/3){
+        if(rightBound-r>fullList.length/3.0){
             randomSelect(fullList, r+1,rightBound);
         }
         
