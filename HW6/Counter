@@ -1,0 +1,38 @@
+
+package counter;
+
+import java.util.Scanner;
+
+public class Counter {
+    public static String getInput(){
+            //=================================
+
+            // Gets filename from user
+
+            //=================================
+
+
+            System.out.print("Input file here: ");
+            Scanner cin=new Scanner(System.in);
+            String file=cin.next();
+            cin.close();
+            return file;
+
+            
+    }
+    public static void main(String[] args){
+        String basename;
+        if (args.length!=0)
+                basename=args[0];
+        else
+                basename=getInput();
+        int[] list=new fileParser(basename).getData();
+        int count=0;
+        for(int a=0;a<list.length;a++){
+            if(list[a]==12345678){
+                count++;
+            }
+        }
+        System.out.println(count);
+    }
+}
