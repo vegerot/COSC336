@@ -1,14 +1,37 @@
 package assign6program;
+/*
+This program does a partial 
+*/
+import java.util.*;
 
 
 public class Assign6Program {
     public static boolean OneThird;
     public static boolean OneHalf;
     
+    public static String getInput(){
+            //=================================
+
+            // Gets filename from user
+
+            //=================================
+
+
+            System.out.print("Input file here: ");
+            Scanner cin=new Scanner(System.in);
+            String file=cin.next();
+            cin.close();
+            return file;
+
+    }
     
     public static void main(String[] args) {
-        int[] list  = new int[]{1,1,5,4};
-        
+        String basename;
+        if (args.length!=0)
+                basename=args[0];
+        else
+                basename=getInput();
+        int[] list=new fileParser(basename).getData();
         //initializing to the answer "no"
         OneHalf=false;
         OneThird=false;
@@ -68,35 +91,50 @@ public class Assign6Program {
         /*Testing code above*/
         
         while(l<r){
-            
-            while(l<fullList.length&&fullList[l]<=pivot && l<=rightBound){
+
+            while(l<fullList.length&&fullList[l]<=pivot){
                 if(fullList[l]==pivot){
                     count++;
                     /*Testing code bellow*/
-                    for(int a=0;a<fullList.length;a++){
-                        System.out.println(fullList[a]);
-                    }
                     System.out.println("end of list "+count);
                     /*Testing code above*/
                 }
                 l++;
-                System.out.println(l+"=l");
+                System.out.println(l+"=L");
             }
             
-            while(r>-1&&fullList[r]>pivot && r>=leftBound){
+            while(r>0&&fullList[r]>pivot && r>leftBound){
                 r--;
-                System.out.println(r+"=r");
+                System.out.println(r+"=R");
             }
             
             
-            holder =fullList[r];
-            fullList[r]=fullList[leftBound];
-            fullList[leftBound]=holder;
-            //swaps the pivot with the first element of the group in question
-
+            System.out.println(l+"=L and "+r+"=R\n");
+            
+            if(l<r){
+                holder =fullList[r];
+                fullList[r]=fullList[l];
+                fullList[l]=holder;
+                //swaps the two items on the wrong side
+            }
+            
+            //test code below
+            for(int a=0;a<fullList.length;a++){
+                        System.out.println(fullList[a]);
+            }
+            
+            System.out.println("end of list V "+count);
         }
              
-
+        holder =fullList[r];
+        fullList[r]=fullList[leftBound];
+        fullList[leftBound]=holder;
+        for(int a=0;a<fullList.length;a++){
+                        System.out.println(fullList[a]);
+            }
+            
+            System.out.println("end of list game\n\n");
+        
         if (count>fullList.length/3.0){
             OneThird=true;
             thisPivotIsOneThird=true;
@@ -106,7 +144,7 @@ public class Assign6Program {
             }
         }
         
-        if((r-leftBound)>(fullList.length/3.0)){
+        if((r-leftBound)>(fullList.length/3.0)&&!OneHalf){
             if(thisPivotIsOneThird){
                 ClearLeft(fullList, leftBound,r, pivot);   
             }
@@ -118,7 +156,7 @@ public class Assign6Program {
                 randomSelect(fullList, leftBound,r-1);
             }
         }
-        if(rightBound-r>fullList.length/3.0){
+        if(rightBound-r>fullList.length/3.0&&!OneHalf){
             randomSelect(fullList, r+1,rightBound);
         }
         
@@ -132,7 +170,7 @@ public class Assign6Program {
                 l++;
             }//finds first point equal to value
             
-            while(fullList[r]==value && r>leftBound){
+            while(fullList[r]==value && r>=leftBound){
                 r--;
             }//finds first point not equal to value
             
