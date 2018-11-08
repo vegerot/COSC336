@@ -40,14 +40,19 @@ public class EasierSolution
 		int tries=0;
 		boolean third=false;
 		boolean half=false;
-		int[] alreadyPicked=new int[list.length+1];
+	        int[] alreadyPicked=new int[list.length+1];
+
+		for (int i=0; i<alreadyPicked.length; i++)
+		{
+			alreadyPicked[i]=Integer.MIN_VALUE;
+		}
 
 		int random=randomElement(list,alreadyPicked);
 
 		
 		alreadyPicked[tries]=random;
 
-		while (tries<=Math.ceil(2*list.length/3))
+		while (tries<Math.ceil(2*list.length/3))
 		//while (tries<list.length)
 		{
 			tries++;
@@ -64,6 +69,7 @@ public class EasierSolution
 				{
 					//System.out.println("THIRD");
 					third=true;
+			//		System.out.println("THIRD");
 					if (cntr>Math.ceil(list.length/2))
 					{
 						//System.out.println("HALF");
@@ -96,10 +102,15 @@ public class EasierSolution
 				}	
 			}
 		} while (success==false);*/
-		/*do 
-		{*/
+		int tryCnt=0;
+		System.out.println("Entering randomElement do");
+		do 
+		{
+			tryCnt++;
 			random=list[new Random().nextInt(list.length)];
-		/*} while(!elementOf(alreadyPicked,random));*/
+		//	System.out.println("Is "+random+" in alreadyPicked?"+(elementOf(alreadyPicked, random)));
+			if (tryCnt>=list.length) break;
+		} while(elementOf(alreadyPicked,random));
 		return random;
 	}
 
@@ -108,8 +119,8 @@ public class EasierSolution
 		for (int i=0; i<list.length; i++)
 		{
 			if (element==list[i])
-				return false;
+				return true;
 		}
-		return true;
+		return false;
 	}
 }
