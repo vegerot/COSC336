@@ -24,7 +24,8 @@ public class GraphInt
               
             // Create a new list for each vertex 
             // such that adjacent nodes can be stored 
-            for(int i = 0; i < V ; i++){ 
+            for(int i = 0; i < V ; i++)
+	    { 
                 adjListArray[i] = new LinkedList<>(); 
             } 
         } 
@@ -36,10 +37,14 @@ public class GraphInt
 	   private int value;
 	   boolean visited;
 
+	   LinkedList<Node> adjList=new LinkedList<>();
+	   int V;
+
 	   public Node(int v)
 	   {
 		   this.value=v;
 		   this.visited=false;
+		   this.children=new Node[V];
 	   }
 
 	   public int getValue()
@@ -51,9 +56,15 @@ public class GraphInt
 	   {
 		   return this.children[];
 	   }
-	   public int[] addChild()
+	   public int addChild(Node n)
 	   {
-
+			this.children.add(n);
+			return n.value;
+	   }
+	   public int addChild(int n)
+	   {
+			   this.children.add(new Node[n]);
+			   return n;
 	   }
 
    } 
@@ -61,7 +72,7 @@ public class GraphInt
     // Adds an edge to an undirected graph 
     static void addEdge(Graph graph, int src, int dest) 
     {
-	Node s=new Node(src);
+		Node s=new Node(src);
         Node d=new Node(dest); 
         // Add an edge from src to dest.  
         graph.adjListArray[src].add(dest);
