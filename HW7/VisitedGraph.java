@@ -1,8 +1,9 @@
 // Java Program to demonstrate adjacency list  
 // representation of graphs 
 import java.util.LinkedList; 
+import java.util.ArrayList;
   
-public class GraphInt  
+public class VisitedGraph 
 { 
     // A user define class to represent a graph. 
     // A graph is an array of adjacency lists. 
@@ -11,7 +12,7 @@ public class GraphInt
     static class Graph 
     { 
         int V; 
-        LinkedList<Node> adjListArray[]; 
+        Node[] graph;	
           
         // constructor  
         Graph(int V) 
@@ -20,20 +21,16 @@ public class GraphInt
               
             // define the size of array as  
             // number of vertices 
-            adjListArray = new LinkedList[V]; 
-              
+            graph=new Node[V]; 
             // Create a new list for each vertex 
             // such that adjacent nodes can be stored 
-            for(int i = 0; i < V ; i++)
-	    { 
-                adjListArray[i] = new LinkedList<>(); 
-            } 
         } 
+
     }
 
    class Node
    {
-	   private Node[] children;
+	   private ArrayList<Node> children;
 	   private int value;
 	   boolean visited;
 
@@ -44,7 +41,7 @@ public class GraphInt
 	   {
 		   this.value=v;
 		   this.visited=false;
-		   this.children=new Node[V];
+		   this.children=new ArrayList<Node>();
 	   }
 
 	   public int getValue()
@@ -52,9 +49,9 @@ public class GraphInt
 		   return this.value;
 	   }
 
-	   public Node[] getChildren()
+	   public ArrayList<Node> getChildren()
 	   {
-		   return this.children[];
+		   return this.children;
 	   }
 	   public int addChild(Node n)
 	   {
@@ -63,24 +60,25 @@ public class GraphInt
 	   }
 	   public int addChild(int n)
 	   {
-			   this.children.add(new Node[n]);
+			   this.children.add(new Node(n));
 			   return n;
 	   }
 
    } 
       
     // Adds an edge to an undirected graph 
-    static void addEdge(Graph graph, int src, int dest) 
+    void addEdge(Node n1, Node n2) 
     {
-		Node s=new Node(src);
-        Node d=new Node(dest); 
+		/*Node s=new Node(src);
+        Node d=new Node(dest);*/
+			
+		n1.addChild(n2);
+		n2.addChild(n1);
         // Add an edge from src to dest.  
-        graph.adjListArray[src].add(dest);
 
          
         // Since graph is undirected, add an edge from dest 
         // to src also 
-        graph.adjListArray[dest].add(src); 
     } 
        
     // A utility function to print the adjacency list  
@@ -103,18 +101,30 @@ public class GraphInt
     { 
         // create the graph given in above figure 
         int V = 5; 
-        Graph graph = new Graph(V); 
-        addEdge(graph, 0, 1); 
-        addEdge(graph, 0, 4); 
-        addEdge(graph, 1, 2); 
-        addEdge(graph, 1, 3); 
-        addEdge(graph, 1, 4); 
-        addEdge(graph, 2, 3); 
-        addEdge(graph, 3, 4); 
-       
+//		Graph graph=new Graph(V);
+		Node n1=new Node(1);
+		Node n2=new Node(2);
+		Node n3=new Node(3);
+		Node n4=new Node(4);
+		Node n5=new Node(5);
+		Node n6=new Node(6);
+		Node n7=new Node(7);
+	 	
+		Node[] graph=new Node[] {n1,n2,n3,n4,n5,n6,n7};
+		
+		addEdge(n1,n2);
+		addEdge(n1,n3);
+		addEdge(n1,n4);
+		addEdge(n2,n5);
+		addEdge(n3,n5);
+		addEdge(n4,n6);
+		addEdge(n5,n7);
+		addEdge(n6,n7);
+
+
+
         // print the adjacency list representation of  
         // the above graph 
-        printGraph(graph); 
     } 
 } 
 // This code is contributed by Sumit Ghosh.  Fixed and modified by Max Coplan
