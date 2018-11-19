@@ -26,8 +26,8 @@ public class graphTester
        n1.addEdge(n6,n7);
 
 
-        System.out.println(n7.getValue());
-        n1.printGraph(graph);
+        //System.out.println(n7.getValue());
+        n1.print(graph);
 
 
 

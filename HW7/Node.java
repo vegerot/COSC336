@@ -12,7 +12,7 @@ public class Node
 
    private ArrayList<Node> children;
    private int value;
-   boolean visited;
+   public boolean visited;
 
    LinkedList<Node> adjList=new LinkedList<>();
    int V;
@@ -68,46 +68,34 @@ public class Node
         { 
             System.out.println("Adjacency list of vertex "+ v); 
             System.out.print("head"); 
-            for(Node elem:graph[v].getChildren()){ 
+            for(Node elem:graph[v].getChildren())
+			{ 
                 System.out.print(" -> "+elem.getValue()); 
             } 
             System.out.println("\n"); 
         } 
     } 
+
+	public void print(Node[] graph)
+	{
+			for (int v=0; v<graph.length; v++)
+			{
+					for (Node elem:graph[v].getChildren())
+					{
+							if (!elem.visited)
+							{
+								System.out.print(elem.getValue()+" ");
+								elem.visited=true;
+							}
+					}
+					System.out.println();
+
+			}
+	}
        
     // Driver program to test above functions 
-    /*public static void main(String args[]) 
-    { 
-        // create the graph given in above figure 
-        int V = 7; 
-//		Graph graph=new Graph(V);
-		Node n1=new Node(1);
-		Node n2=new Node(2);
-		Node n3=new Node(3);
-		Node n4=new Node(4);
-		Node n5=new Node(5);
-		Node n6=new Node(6);
-		Node n7=new Node(7);
-	 	
-		Node[] graph=new Node[] {n1,n2,n3,n4,n5,n6,n7};
-		
-		addEdge(n1,n2);
-		addEdge(n1,n3);
-		addEdge(n1,n4);
-		addEdge(n2,n5);
-		addEdge(n3,n5);
-		addEdge(n4,n6);
-		addEdge(n5,n7);
-		addEdge(n6,n7);
-
-
-		System.out.println(n7.getValue());
-		printGraph(graph);
-
-
-
         // print the adjacency list representation of  
         // the above graph 
-    } */
+    //} 
 } 
 // This code is contributed by Sumit Ghosh.  Fixed and modified by Max Coplan
