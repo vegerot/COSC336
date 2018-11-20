@@ -13,6 +13,7 @@ public class Node
    private ArrayList<Node> children;
    private int value;
    public boolean visited;
+	//public int pathLevel;
 
    LinkedList<Node> adjList=new LinkedList<>();
    int V;
