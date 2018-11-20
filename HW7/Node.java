@@ -116,4 +116,4 @@ public class Node
 		return false;
 	}
 } 
-// This code is contributed by Sumit Ghosh.  Fixed and modified by Max Coplan
+// This code is inspired by Sumit Ghosh. Completely written by Max Coplan, though
