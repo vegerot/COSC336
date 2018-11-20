@@ -29,7 +29,8 @@ public class graphTester
         //System.out.println(n7.getValue());
         n1.print(graph);
 
-
+	ShortestPath.Paths(graph, 1,2);	
+	//System.out.println(ShortestPath.Paths(graph, 1,2));
 
         // print the adjacency list representation of  
         // the above graph 

@@ -44,6 +44,12 @@ public class Node
 		   return n;
    }
 
+   /*public boolean setVisited(boolean bool)
+   {
+	   this.visited=bool;
+	   return bool
+   }*/
+
       
     // Adds an edge to an undirected graph 
     public void addEdge(Node n1, Node n2) 
@@ -96,6 +102,10 @@ public class Node
     // Driver program to test above functions 
         // print the adjacency list representation of  
         // the above graph 
-    //} 
+    //}
+	public String toString()
+	{
+		return Integer.toString(this.value);
+	}	
 } 
 // This code is contributed by Sumit Ghosh.  Fixed and modified by Max Coplan
