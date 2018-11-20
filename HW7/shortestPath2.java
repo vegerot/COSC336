@@ -4,25 +4,25 @@ public class shortestPath2
 public static ArrayList<Integer> shortestPath(Node[] graph, Node source, Node dest) 
 {
         ArrayList<Integer> shortestPathList = new ArrayList<Integer>();
-        boolean[] visited = new boolean[100];
+        boolean[] visited = new boolean[graph.length+2];
 
-        Queue<Node> q = new LinkedList<Node>();
-        Stack<Node> pathStack = new Stack<Node>();
+        Queue<Node> in = new LinkedList<Node>();
+        Stack<Node> reversePath = new Stack<Node>();
 
-        q.add(source);
-        pathStack.add(source);
+        in.add(source);
+        reversePath.add(source);
         visited[source.getValue()] = true;
 
-        while (!q.isEmpty()) 
+        while (!in.isEmpty()) 
 	{
-            Node u = q.poll();
+            Node u = in.poll();
             for (Node v : u.getChildren()) 
 	    {
                 if (!visited[v.getValue()]) 
 		{
-                    q.add(v);
+                    in.add(v);
                     visited[v.getValue()] = true;
-                    pathStack.add(v);
+                    reversePath.add(v);
                     if (u.getValue() == dest.getValue())
                         break;
                 }
@@ -32,9 +32,9 @@ public static ArrayList<Integer> shortestPath(Node[] graph, Node source, Node de
         // To find the path
         Node node, currentSrc = dest;
         shortestPathList.add(dest.getValue());
-        while (!pathStack.isEmpty()) 
+        while (!reversePath.isEmpty()) 
 	{
-            node = pathStack.pop();
+            node = reversePath.pop();
             if (currentSrc.isNeighborOf(node)) 
 	    {
                 shortestPathList.add(node.getValue());
