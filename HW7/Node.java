@@ -106,6 +106,14 @@ public class Node
 	public String toString()
 	{
 		return Integer.toString(this.value);
-	}	
+	}
+
+	public boolean isNeighborOf(Node n2)
+	{
+		for (Node n: this.children)
+			if (n.value==n2.value)
+				return true;
+		return false;
+	}
 } 
 // This code is contributed by Sumit Ghosh.  Fixed and modified by Max Coplan
