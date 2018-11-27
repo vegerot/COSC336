@@ -15,8 +15,7 @@ public class MazePathFinder {
         
         String[] bestPrevious=new String[mazeSize*mazeSize];
         int[] lowestVal = new int[mazeSize*mazeSize];
-        int[] heapList=new int[mazeSize*mazeSize*4];
-        String[] heapPointers=new String[mazeSize*mazeSize*4];
+
         
         int[] horizontalMove= new int[]{0,2,1,4,  2,0,3,0,   3,3,3,3,  1,2,0,6, 
             1,2,1,3};
@@ -25,7 +24,7 @@ public class MazePathFinder {
 
         //horizontalMove=HeapSort.sort(horizontalMove);
         
-        for(int point=0; point<(mazeSize*mazeSize)+65;point++){
+        for(int point=0; point<(mazeSize*mazeSize);point++){
             String value=(char)(point+65)+" ";
             maze[point]=value;
             bestPrevious[point]="null";
@@ -34,47 +33,36 @@ public class MazePathFinder {
         bestPrevious[0]="Start here";
         lowestVal[0]=0;
         
-        for(int i:heapList){
-            heapList[i]=Integer.MAX_VALUE;
-            heapPointers[i]="null";
-        }
-        
+
         int location =0;
         //we start in upper left square and end in (mazeSize*mazeSize -1)
-        
-        
         
         for(int pathNum=0;pathNum<mazeSize*mazeSize;pathNum++){
             if(location>mazeSize){
                 //check point above, it is not on first row
-                if(lowestVal[location]+verticalMove[location-mazeSize]<lowestVal[location-mazeSize]){
-                    int open =findNextSpot(heapList);
-                    heapList[open]=lowestVal[location]+verticalMove[location-mazeSize];
-                    heapPointers[open]=maze[location-mazeSize];
+                if(lowestVal[location-mazeSize]>lowestVal[location]+verticalMove[location-mazeSize]){
+                    
+                    lowestVal[location-mazeSize]=lowestVal[location]+verticalMove[location-mazeSize];
+                    bestPrevious[location-mazeSize] = maze[location];
+                    
                 }
             }
             if(location<mazeSize*(mazeSize-1)){
                 //check point below, it is not on last row
-                if(lowestVal[location]+verticalMove[location+mazeSize]<lowestVal[location+mazeSize]){
-                    int open =findNextSpot(heapList);
-                    heapList[open]=lowestVal[location]+verticalMove[location+mazeSize];
-                    heapPointers[open]=maze[location+mazeSize];
+                if(lowestVal[location+mazeSize]>lowestVal[location]+verticalMove[location+mazeSize]){
+                    
                 }
             }
             if(location%mazeSize!=0){
                 //check point to the left, it is not on first Column
-                if(lowestVal[location]+horizontalMove[location-1]<lowestVal[location-1]){
-                    int open =findNextSpot(heapList);
-                    heapList[open]=lowestVal[location]+horizontalMove[location-1];
-                    heapPointers[open]=maze[location-1];
+                if(lowestVal[location-1]>lowestVal[location]+horizontalMove[location-1]){
+                    
                 }
             }
             if(location%mazeSize!=mazeSize-1){
                 //check point to the right, it is not on last Column
-                if(lowestVal[location]+horizontalMove[location+1]<lowestVal[location+1]){
-                    int open =findNextSpot(heapList);
-                    heapList[open]=lowestVal[location]+horizontalMove[location+1];
-                    heapPointers[open]=maze[location+1];
+                if(lowestVal[location+1]>lowestVal[location]+horizontalMove[location+1]){
+
                 }
             }
         }
@@ -85,17 +73,7 @@ public class MazePathFinder {
         printArrays(mazeSize, maze, horizontalMove, verticalMove, bestPrevious,lowestVal);
     }
     
-    public static int findNextSpot(int[] list){
-        
-        int nextSpot=-1;
-        for(int i =0;i<list.length;i++){
-            if(list[i]==Integer.MAX_VALUE){
-                nextSpot =i;
-            }
-        }
-        return nextSpot;
-    }
-    
+
     public static void printArrays(int mazeSize,String[] maze,
             int[] horizontalMove,int[] verticalMove,String[] bestPrevious,int[] lowestVal){
         
