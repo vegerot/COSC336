@@ -1,6 +1,8 @@
 
 package mazepathfinder;
 
+import static mazepathfinder.HeapSort.printArray;
+
 public class MazePathFinder {
 
     
@@ -17,8 +19,10 @@ public class MazePathFinder {
             1,2,1,3};
         int[] horizMove= new int[]{0,2,1,0,1,  1,1,3,0,2,  1,2,3,2,1,  
             2,1,1,3,2};
-    
         
+        HeapSort ob = new HeapSort(); 
+        ob.sort(arr);
+        printArray(arr);
         for(int point=65; point<(mazeSize*mazeSize)+65;point++){
             String value=(char)point+" ";
             maze[point-65]=value;
@@ -27,16 +31,17 @@ public class MazePathFinder {
         }
         
         
+        
+        
+        
+        
 
-        printArray(mazeSize, maze, vertMove, horizMove, bestPrevious,lowestVal);
-        
-        
-        
+        printArrays(mazeSize, maze, vertMove, horizMove, bestPrevious,lowestVal);
     }
     
     
     
-    public static void printArray(int mazeSize,String[] maze,
+    public static void printArrays(int mazeSize,String[] maze,
             int[] vertMove,int[] horizMove,String[] bestPrevious,int[] lowestVal){
         for(int x=0; x<mazeSize;x++){
             for(int y=0; y<mazeSize;y++){
