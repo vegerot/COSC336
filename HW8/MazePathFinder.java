@@ -129,3 +129,18 @@ public class MazePathFinder {
     }
     
 }
+
+public Integer getMinKey(HashMap<Integer,Integer> map)
+    int minKey = 1000;
+    int minValue = Integer.MAX_VALUE;
+    for(int key : map) {
+        int value = map.get(key);
+        if(value < minValue) {
+            minValue = value;
+            minKey = key;
+        }
+    }
+    return minKey;
+}
+
+
