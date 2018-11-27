@@ -37,8 +37,17 @@ public class MazePathFinder {
         //we start in upper left square and end in (mazeSize*mazeSize -1)
         
         for(int pathNum=0;pathNum<mazeSize*mazeSize;pathNum++){
-            if(location>5){
-                //check point above
+            if(location>mazeSize){
+                //check point above it is not on first row
+            }
+            if(location<mazeSize*mazeSize-mazeSize){
+                //check point below it is not on last row
+            }
+            if(location%mazeSize!=0){
+                //check point to the left it is not on first Column
+            }
+            if(location%mazeSize!=mazeSize-1){
+                //check point to the right it is not on last Column
             }
         }
         
