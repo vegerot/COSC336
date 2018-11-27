@@ -18,14 +18,13 @@ public class MazePathFinder {
         String[] bestPrevious=new String[mazeSize*mazeSize];
         int[] lowestVal = new int[mazeSize*mazeSize];
 
-	HashMap<Integer,Integer> next=new HashMap<>();
+        HashMap<Integer,Integer> next=new HashMap<>();
         
         int[] horizontalMove= new int[]{0,2,1,4,  2,0,3,0,   3,3,3,3,  1,2,0,6, 
             1,2,1,3};
         int[] verticalMove= new int[]{0,2,1,0,1,  1,1,3,0,2,  1,2,3,2,1,  
             2,1,1,3,2};
 
-        //horizontalMove=HeapSort.sort(horizontalMove);
         
         for(int point=0; point<(mazeSize*mazeSize);point++){
             String value=(char)(point+65)+" ";
@@ -35,43 +34,53 @@ public class MazePathFinder {
         }
         bestPrevious[0]="Start here";
         lowestVal[0]=0;
-        
-
+         
         int location =0;
         //we start in upper left square and end in (mazeSize*mazeSize -1)
         
-        for(int pathNum=0;pathNum<mazeSize*mazeSize;pathNum++){
+        for(int pathNum=0;pathNum<=mazeSize*mazeSize;pathNum++){
             if(location>mazeSize){
                 //check point above, it is not on first row
                 if(lowestVal[location-mazeSize]>lowestVal[location]+verticalMove[location-mazeSize]){
                     
                     lowestVal[location-mazeSize]=lowestVal[location]+verticalMove[location-mazeSize];
                     bestPrevious[location-mazeSize] = maze[location];
-		    next.put(location-mazeSize, lowestVal[location-mazeSize])
-                    
+                    next.put(location-mazeSize, lowestVal[location-mazeSize]);
                 }
             }
             if(location<mazeSize*(mazeSize-1)){
                 //check point below, it is not on last row
                 if(lowestVal[location+mazeSize]>lowestVal[location]+verticalMove[location+mazeSize]){
-                    next.put(location+mazeSize, lowestVal[location+mazeSize])
+                    
+                    lowestVal[location+mazeSize]=lowestVal[location]+verticalMove[location+mazeSize];
+                    bestPrevious[location+mazeSize] = maze[location];
+                    next.put(location+mazeSize, lowestVal[location+mazeSize]);
+                            
                 }
             }
             if(location%mazeSize!=0){
                 //check point to the left, it is not on first Column
                 if(lowestVal[location-1]>lowestVal[location]+horizontalMove[location-1]){
-                    next.put(location-1, lowestVal[location-1])
+                    
+                    lowestVal[location-1]=lowestVal[location]+horizontalMove[location-1];
+                    bestPrevious[location-1] = maze[location];
+                    next.put(location-1, lowestVal[location-1]);
+                            
                 }
             }
             if(location%mazeSize!=mazeSize-1){
                 //check point to the right, it is not on last Column
                 if(lowestVal[location+1]>lowestVal[location]+horizontalMove[location+1]){
-			next.put(location+1, lowestVal[location+1])
+                    
+                    lowestVal[location+1]=lowestVal[location]+horizontalMove[location+1];
+                    bestPrevious[location+1] = maze[location];
+                    next.put(location+1, lowestVal[location+1]);
+                            
                 }
             }
         }
         
-	
+        
         
 
         printArrays(mazeSize, maze, horizontalMove, verticalMove, bestPrevious,lowestVal);
