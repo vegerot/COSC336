@@ -2,6 +2,8 @@
 package mazepathfinder;
 
 import static mazepathfinder.HeapSort.printArray;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MazePathFinder {
 
@@ -16,6 +18,7 @@ public class MazePathFinder {
         String[] bestPrevious=new String[mazeSize*mazeSize];
         int[] lowestVal = new int[mazeSize*mazeSize];
 
+	HashMap<Integer,Integer> next=new HashMap<>();
         
         int[] horizontalMove= new int[]{0,2,1,4,  2,0,3,0,   3,3,3,3,  1,2,0,6, 
             1,2,1,3};
@@ -44,30 +47,31 @@ public class MazePathFinder {
                     
                     lowestVal[location-mazeSize]=lowestVal[location]+verticalMove[location-mazeSize];
                     bestPrevious[location-mazeSize] = maze[location];
+		    next.put(location-mazeSize, lowestVal[location-mazeSize])
                     
                 }
             }
             if(location<mazeSize*(mazeSize-1)){
                 //check point below, it is not on last row
                 if(lowestVal[location+mazeSize]>lowestVal[location]+verticalMove[location+mazeSize]){
-                    
+                    next.put(location+mazeSize, lowestVal[location+mazeSize])
                 }
             }
             if(location%mazeSize!=0){
                 //check point to the left, it is not on first Column
                 if(lowestVal[location-1]>lowestVal[location]+horizontalMove[location-1]){
-                    
+                    next.put(location-1, lowestVal[location-1])
                 }
             }
             if(location%mazeSize!=mazeSize-1){
                 //check point to the right, it is not on last Column
                 if(lowestVal[location+1]>lowestVal[location]+horizontalMove[location+1]){
-
+			next.put(location+1, lowestVal[location+1])
                 }
             }
         }
         
-        
+	
         
 
         printArrays(mazeSize, maze, horizontalMove, verticalMove, bestPrevious,lowestVal);
