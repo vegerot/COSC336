@@ -30,6 +30,8 @@ public class MazePathFinder {
             bestPrevious[point-65]="null";
             lowestVal[point-65]= 2147483647;
         }
+        bestPrevious[0]="Start here";
+        lowestVal[0]=0;
         
         int location =0;
         //we start in upper left square and end in (mazeSize*mazeSize -1)
@@ -50,6 +52,9 @@ public class MazePathFinder {
     
     public static void printArrays(int mazeSize,String[] maze,
             int[] vertMove,int[] horizMove,String[] bestPrevious,int[] lowestVal){
+        
+        
+        System.out.println("Bug tester and visualization code only, coment out the method call  to printArrays when printing actual output\n");
         for(int x=0; x<mazeSize;x++){
             for(int y=0; y<mazeSize;y++){
                 System.out.print(maze[(x*mazeSize)+y]+" ");
