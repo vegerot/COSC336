@@ -46,29 +46,36 @@ public class MazePathFinder {
         
         for(int pathNum=0;pathNum<mazeSize*mazeSize;pathNum++){
             if(location>mazeSize){
-                //check point above it is not on first row
-                if(lowestVal[location])
-                int open =findNextSpot(heapList);
-                heapList[open]=lowestVal[location]+verticalMove[location-mazeSize];
-                heapPointers[open]=maze[location-mazeSize];
+                //check point above, it is not on first row
+                if(lowestVal[location]+verticalMove[location-mazeSize]<lowestVal[location-mazeSize]){
+                    int open =findNextSpot(heapList);
+                    heapList[open]=lowestVal[location]+verticalMove[location-mazeSize];
+                    heapPointers[open]=maze[location-mazeSize];
+                }
             }
-            if(location<mazeSize*mazeSize-mazeSize){
-                //check point below it is not on last row
-                int open =findNextSpot(heapList);
-                heapList[open]=lowestVal[location]+verticalMove[location+mazeSize];
-                heapPointers[open]=maze[location+mazeSize];
+            if(location<mazeSize*(mazeSize-1)){
+                //check point below, it is not on last row
+                if(lowestVal[location]+verticalMove[location+mazeSize]<lowestVal[location+mazeSize]){
+                    int open =findNextSpot(heapList);
+                    heapList[open]=lowestVal[location]+verticalMove[location+mazeSize];
+                    heapPointers[open]=maze[location+mazeSize];
+                }
             }
             if(location%mazeSize!=0){
-                //check point to the left it is not on first Column
-                int open =findNextSpot(heapList);
-                heapList[open]=lowestVal[location]+horizontalMove[location-1];
-                heapPointers[open]=maze[location-1];
+                //check point to the left, it is not on first Column
+                if(lowestVal[location]+horizontalMove[location-1]<lowestVal[location-1]){
+                    int open =findNextSpot(heapList);
+                    heapList[open]=lowestVal[location]+horizontalMove[location-1];
+                    heapPointers[open]=maze[location-1];
+                }
             }
             if(location%mazeSize!=mazeSize-1){
-                //check point to the right it is not on last Column
-                int open =findNextSpot(heapList);
-                heapList[open]=lowestVal[location]+horizontalMove[location+1];
-                heapPointers[open]=maze[location+1];
+                //check point to the right, it is not on last Column
+                if(lowestVal[location]+horizontalMove[location+1]<lowestVal[location+1]){
+                    int open =findNextSpot(heapList);
+                    heapList[open]=lowestVal[location]+horizontalMove[location+1];
+                    heapPointers[open]=maze[location+1];
+                }
             }
         }
         
