@@ -1,21 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mazepathfinder;
 /*Java program for implementation of Heap Sort created by Geeks for Geeks and 
 modified for the use in our program
 */
 public class HeapSort 
-{
-
-
-    HeapSort()
-    {
-	  
-    }	
-    public void sort(int arr[]) 
+{ 
+    public static int[] sort(int arr[]) 
     { 
         int n = arr.length; 
   
@@ -33,12 +22,14 @@ public class HeapSort
   
             // call max heapify on the reduced heap 
             heapify(arr, i, 0); 
+            
         } 
+        return arr;
     } 
   
     // To heapify a subtree rooted with node i which is 
     // an index in arr[]. n is size of heap 
-    void heapify(int arr[], int n, int i) 
+    static int[] heapify(int arr[], int n, int i) 
     { 
         int largest = i;  // Initialize largest as root 
         int l = 2*i + 1;  // left = 2*i + 1 
@@ -61,7 +52,9 @@ public class HeapSort
   
             // Recursively heapify the affected sub-tree 
             heapify(arr, n, largest); 
+            
         } 
+        return(arr);
     } 
   
     /* A utility function to print array of size n */
