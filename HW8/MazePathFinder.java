@@ -25,11 +25,11 @@ public class MazePathFinder {
 
         //horizontalMove=HeapSort.sort(horizontalMove);
         
-        for(int point=65; point<(mazeSize*mazeSize)+65;point++){
-            String value=(char)point+" ";
-            maze[point-65]=value;
-            bestPrevious[point-65]="null";
-            lowestVal[point-65]= 2147483647;
+        for(int point=0; point<(mazeSize*mazeSize)+65;point++){
+            String value=(char)(point+65)+" ";
+            maze[point]=value;
+            bestPrevious[point]="null";
+            lowestVal[point]= 2147483647;
         }
         bestPrevious[0]="Start here";
         lowestVal[0]=0;
@@ -47,6 +47,7 @@ public class MazePathFinder {
         for(int pathNum=0;pathNum<mazeSize*mazeSize;pathNum++){
             if(location>mazeSize){
                 //check point above it is not on first row
+                if(lowestVal[location])
                 int open =findNextSpot(heapList);
                 heapList[open]=lowestVal[location]+verticalMove[location-mazeSize];
                 heapPointers[open]=maze[location-mazeSize];
