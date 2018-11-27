@@ -12,17 +12,18 @@ public class MazePathFinder {
         String[] maze = new String[mazeSize*mazeSize]; 
         /*[X][1] represents the name of the node while[X][2] represents the best
         previous node to go to for an efficient path to that node*/
+        
         String[] bestPrevious=new String[mazeSize*mazeSize];
         int[] lowestVal = new int[mazeSize*mazeSize];
+        //int[] heapList=new int[];
         
         int[] vertMove= new int[]{0,2,1,4,  2,0,3,0,   3,3,3,3,  1,2,0,6, 
             1,2,1,3};
         int[] horizMove= new int[]{0,2,1,0,1,  1,1,3,0,2,  1,2,3,2,1,  
             2,1,1,3,2};
+
+        //vertMove=HeapSort.sort(vertMove);
         
-        HeapSort ob = new HeapSort(); 
-        ob.sort(arr);
-        printArray(arr);
         for(int point=65; point<(mazeSize*mazeSize)+65;point++){
             String value=(char)point+" ";
             maze[point-65]=value;
@@ -30,8 +31,14 @@ public class MazePathFinder {
             lowestVal[point-65]= 2147483647;
         }
         
+        int location =0;
+        //we start in upper left square and end in (mazeSize*mazeSize -1)
         
-        
+        for(int pathNum=0;pathNum<mazeSize*mazeSize;pathNum++){
+            if(location>5){
+                //check point above
+            }
+        }
         
         
         
