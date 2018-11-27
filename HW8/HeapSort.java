@@ -8,7 +8,13 @@ package mazepathfinder;
 modified for the use in our program
 */
 public class HeapSort 
-{ 
+{
+
+
+    HeapSort()
+    {
+	  
+    }	
     public void sort(int arr[]) 
     { 
         int n = arr.length; 
