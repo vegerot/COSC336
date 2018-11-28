@@ -25,3 +25,24 @@ u.π=r
 u.d=18
 u.f=19
 r.f=20
+
+
+
+So, not sure if he entirely covered tree edges before, but the book discusses them so I'm gonna use them.
+Easiest way to explain the distinctions:
+If we visit a node for the first time going through standard depth-first search, then its a tree edge
+If there is an edge from one node to one of its known descendants, then it's a forward edge
+If there is an edge from one node to one of its ancestors, then it's a back edge
+Any other kind of edge is a cross edge
+
+Tree Edges:
+(q, s), (s, v), (v, w), (q, t), (t, x), (x, z), (t, y),  (r, u)
+
+Forward Edges:
+(q, w)
+
+Back Edges:
+(w, s), (z, x), (y, q)
+
+Cross Edges:
+(r, y), (u, y)
