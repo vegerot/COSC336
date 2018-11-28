@@ -38,21 +38,23 @@ public class MazePathFinder {
         int location =0;
         //we start in upper left square and end in (mazeSize*mazeSize -1)
         
+        printArrays(mazeSize, maze, horizontalMove, verticalMove, bestPrevious,lowestVal);
+        
         for(int pathNum=0;pathNum<=mazeSize*mazeSize;pathNum++){
             if(location>mazeSize){
                 //check point above, it is not on first row
-                if(lowestVal[location-mazeSize]>lowestVal[location]+verticalMove[location-mazeSize]){
+                if(lowestVal[location-mazeSize]>lowestVal[location]+verticalMove[((location-mazeSize)%mazeSize)*(mazeSize)+location/mazeSize-1]){
                     
-                    lowestVal[location-mazeSize]=lowestVal[location]+verticalMove[location-mazeSize];
+                    lowestVal[location-mazeSize]=lowestVal[location]+verticalMove[((location-mazeSize)%mazeSize)*(mazeSize)+location/mazeSize-1];
                     bestPrevious[location-mazeSize] = maze[location];
                     next.put(location-mazeSize, lowestVal[location-mazeSize]);
                 }
             }
             if(location<mazeSize*(mazeSize-1)){
                 //check point below, it is not on last row
-                if(lowestVal[location+mazeSize]>lowestVal[location]+verticalMove[location+mazeSize]){
+                if(lowestVal[location+mazeSize]>lowestVal[location]+verticalMove[(location%(mazeSize)*(mazeSize)+location/mazeSize-1)]){
                     
-                    lowestVal[location+mazeSize]=lowestVal[location]+verticalMove[location+mazeSize];
+                    lowestVal[location+mazeSize]=lowestVal[location]+verticalMove[(location%(mazeSize)*(mazeSize)+location/mazeSize-1)];
                     bestPrevious[location+mazeSize] = maze[location];
                     next.put(location+mazeSize, lowestVal[location+mazeSize]);
                             
@@ -60,9 +62,9 @@ public class MazePathFinder {
             }
             if(location%mazeSize!=0){
                 //check point to the left, it is not on first Column
-                if(lowestVal[location-1]>lowestVal[location]+horizontalMove[location-1]){
+                if(lowestVal[location-1]>lowestVal[location]+horizontalMove[((location-1)%(mazeSize)*(mazeSize-1)+(location-1)/(mazeSize))]){
                     
-                    lowestVal[location-1]=lowestVal[location]+horizontalMove[location-1];
+                    lowestVal[location-1]=lowestVal[location]+horizontalMove[((location-1)%(mazeSize)*(mazeSize-1)+(location-1)/(mazeSize))];
                     bestPrevious[location-1] = maze[location];
                     next.put(location-1, lowestVal[location-1]);
                             
@@ -70,14 +72,21 @@ public class MazePathFinder {
             }
             if(location%mazeSize!=mazeSize-1){
                 //check point to the right, it is not on last Column
-                if(lowestVal[location+1]>lowestVal[location]+horizontalMove[location+1]){
+                if(lowestVal[location+1]>lowestVal[location]+horizontalMove[(location%(mazeSize-1)*mazeSize+location/(mazeSize))]){
                     
-                    lowestVal[location+1]=lowestVal[location]+horizontalMove[location+1];
+                    lowestVal[location+1]=lowestVal[location]+horizontalMove[(location%(mazeSize-1)*mazeSize+location/(mazeSize))];
                     bestPrevious[location+1] = maze[location];
                     next.put(location+1, lowestVal[location+1]);
                             
                 }
             }
+            
+location=getMinKey(next);
+            System.out.println(location+ " a");
+            next.remove(location);
+            System.out.println(next.size()+" b");
+
+
         }
         
         
@@ -116,7 +125,7 @@ public class MazePathFinder {
         System.out.println("The list below is the best previous node to have "
                 + "gone to and best total path (null should not show up when "
                 + "code is done)\n\n");
-        for(int x=0; x<mazeSize;x++){
+        /*for(int x=0; x<mazeSize;x++){
             for(int y=0; y<mazeSize;y++){
                 System.out.print("("+bestPrevious[(x*mazeSize)+y]+","
                         +lowestVal[(x*mazeSize)+y]+")  ");
@@ -125,22 +134,18 @@ public class MazePathFinder {
             
             System.out.println();     
             
-        }
+        }*/
     }
-    
-}
-
-public Integer getMinKey(HashMap<Integer,Integer> map)
-    int minKey = 1000;
-    int minValue = Integer.MAX_VALUE;
-    for(int key : map) {
-        int value = map.get(key);
-        if(value < minValue) {
-            minValue = value;
-            minKey = key;
+    public static Integer getMinKey(HashMap<Integer,Integer> map){
+        int minKey = 1000;
+        int minValue = Integer.MAX_VALUE;
+        for(int key : map.keySet()) {
+            int value = map.get(key);
+            if(value < minValue) {
+                minValue = value;
+                minKey = key;
+            }
         }
+        return minKey;
     }
-    return minKey;
 }
-
-
