@@ -3,7 +3,7 @@ package mazepathfinder;
 modified for the use in our program
 */
 public class HeapSort 
-{ 
+{ DO NOT PRINT, THis WAS NOT USED
     public static int[] sort(int arr[]) 
     { 
         int n = arr.length; 
