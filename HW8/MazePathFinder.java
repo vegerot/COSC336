@@ -52,7 +52,7 @@ public class MazePathFinder {
             }
             if(location<mazeSize*(mazeSize-1)){
                 //check point below, it is not on last row
-                System.out.println("abbbbbbbbbbbbbbbbbbbbbbbbbbb");
+                System.out.println("Some error here");
                 System.out.println(location%(mazeSize)+"  and "+location/(mazeSize)*(mazeSize-1));
                 if(lowestVal[location+mazeSize]>lowestVal[location]+verticalMove[location%(mazeSize)+location/(mazeSize)*(mazeSize-1)]){
                     
