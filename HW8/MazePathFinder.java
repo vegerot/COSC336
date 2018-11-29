@@ -1,11 +1,15 @@
-
+/*
+This program finds the shortest path on weighted paths through a maze with walls
+and then prints the weighted value of the best paths and the path itself
+*/
 package mazepathfinder;
 
-import static mazepathfinder.HeapSort.printArray;
-import java.util.HashMap;
-import java.util.Map;
 
-public class MazePathFinder {
+
+import java.util.HashMap;
+//import java.util.Map;
+
+public class mazePathFinder2 {
 
     
     public static void main(String[] args) {
@@ -30,7 +34,7 @@ public class MazePathFinder {
             String value=(char)(point+65)+" ";
             maze[point]=value;
             bestPrevious[point]=999;
-            lowestVal[point]= 2147483647;
+            lowestVal[point]= Integer.MAX_VALUE;
         }
         bestPrevious[0]=0;
         lowestVal[0]=0;
@@ -38,25 +42,23 @@ public class MazePathFinder {
         int location =0;
         //we start in upper left square and end in (mazeSize*mazeSize -1)
         
-        printArrays(mazeSize, maze, horizontalMove, verticalMove, bestPrevious,lowestVal);
         
         for(int pathNum=0;pathNum<=mazeSize*mazeSize&&location<25;pathNum++){
-            if(location>mazeSize){
+            if(location/mazeSize>=1){
                 //check point above, it is not on first row
-                if(lowestVal[location-mazeSize]>lowestVal[location]+verticalMove[(location-mazeSize)%(mazeSize)+(location-mazeSize)/(mazeSize)*(mazeSize-1)]){
+                if(lowestVal[location-mazeSize]>lowestVal[location]+verticalMove[(location-mazeSize)%(mazeSize)+(location-mazeSize)/(mazeSize)*(mazeSize)]){
                     
-                    lowestVal[location-mazeSize]=lowestVal[location]+verticalMove[(location-mazeSize)%(mazeSize)+(location-mazeSize)/(mazeSize)*(mazeSize-1)];
+                    lowestVal[location-mazeSize]=lowestVal[location]+verticalMove[(location-mazeSize)%(mazeSize)+(location-mazeSize)/(mazeSize)*(mazeSize)];
                     bestPrevious[location-mazeSize] = location;
                     next.put(location-mazeSize, lowestVal[location-mazeSize]);
                 }
             }
             if(location<mazeSize*(mazeSize-1)){
                 //check point below, it is not on last row
-                System.out.println("Some error here");
-                System.out.println(location%(mazeSize)+"  and "+location/(mazeSize)*(mazeSize-1));
-                if(lowestVal[location+mazeSize]>lowestVal[location]+verticalMove[location%(mazeSize)+location/(mazeSize)*(mazeSize-1)]){
+                
+                if(lowestVal[location+mazeSize]>lowestVal[location]+verticalMove[location%(mazeSize)+location/(mazeSize)*(mazeSize)]){
                     
-                    lowestVal[location+mazeSize]=lowestVal[location]+verticalMove[location%(mazeSize)+location/(mazeSize)*(mazeSize-1)];
+                    lowestVal[location+mazeSize]=lowestVal[location]+verticalMove[location%(mazeSize)+location/(mazeSize)*(mazeSize)];
                     bestPrevious[location+mazeSize] =location;
                     next.put(location+mazeSize, lowestVal[location+mazeSize]);
                             
@@ -64,9 +66,9 @@ public class MazePathFinder {
             }
             if(location%mazeSize!=0){
                 //check point to the left, it is not on first Column
-                if(lowestVal[location-1]>lowestVal[location]+horizontalMove[((location-1)%(mazeSize)*(mazeSize-1)+(location-1)/(mazeSize))]){
+                if(lowestVal[location-1]>lowestVal[location]+horizontalMove[((location-1)%(mazeSize)+(location-1)/(mazeSize)*(mazeSize-1))]){
                     
-                    lowestVal[location-1]=lowestVal[location]+horizontalMove[((location-1)%(mazeSize)*(mazeSize-1)+(location-1)/(mazeSize))];
+                    lowestVal[location-1]=lowestVal[location]+horizontalMove[((location-1)%(mazeSize)+(location-1)/(mazeSize)*(mazeSize-1))];
                     bestPrevious[location-1] = location;
                     next.put(location-1, lowestVal[location-1]);
                             
@@ -74,34 +76,41 @@ public class MazePathFinder {
             }
             if(location%mazeSize!=(mazeSize-1)){
                 //check point to the right, it is not on last Column
-                if(lowestVal[location+1]>lowestVal[location]+horizontalMove[location%(mazeSize)*(mazeSize-1)+location/(mazeSize)]){
+                if(lowestVal[location+1]>lowestVal[location]+horizontalMove[(location%(mazeSize)+location/(mazeSize)*(mazeSize-1))]){
                     
-                    lowestVal[location+1]=lowestVal[location]+horizontalMove[(location%(mazeSize)*(mazeSize-1)+location/(mazeSize))];
+                    lowestVal[location+1]=lowestVal[location]+horizontalMove[(location%(mazeSize)+location/(mazeSize)*(mazeSize-1))];
                     bestPrevious[location+1] = location;
                     next.put(location+1, lowestVal[location+1]);
                             
                 }
             }
             
-location=getMinKey(next);
-            System.out.println(location+ " a at round "+pathNum);
+            location=getMinKey(next);
             next.remove(location);
-            System.out.println(next.size()+" b at round "+pathNum);
-System.out.println();
 
         }
         
         System.out.println("The best path has a total of : "+lowestVal[lowestVal.length-1]);
         location = maze.length-1;
-        System.out.print(maze[location]);
+        
+        String[] endList = new String[maze.length];
+        int a=maze.length-1;
         while(location!=0){
-            System.out.print(maze[bestPrevious[location]]);
+            endList[a]=maze[location];
+            a--;
             location = bestPrevious[location];
         }
+
+        System.out.print("["+maze[0]);
+       while(a<endList.length-1){
+            System.out.print(", "+endList[a+1]);
+            a++;
+        }
+        System.out.println("]");
         System.out.println();
         
 
-        printArrays(mazeSize, maze, horizontalMove, verticalMove, bestPrevious,lowestVal);
+        //printArrays(mazeSize, maze, horizontalMove, verticalMove, bestPrevious,lowestVal);
     }
     
     public static Integer getMinKey(HashMap<Integer,Integer> map){
