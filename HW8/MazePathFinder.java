@@ -72,7 +72,7 @@ public class MazePathFinder {
                             
                 }
             }
-            if(location%mazeSize!=mazeSize-1){
+            if(location%mazeSize!=(mazeSize-1)){
                 //check point to the right, it is not on last Column
                 if(lowestVal[location+1]>lowestVal[location]+horizontalMove[location%(mazeSize)*(mazeSize-1)+location/(mazeSize)]){
                     
