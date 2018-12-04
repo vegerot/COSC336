@@ -16,7 +16,8 @@ class Graph
 	}; 
 
 	int V, E; 
-	Edge edge[]; 
+	Edge edge[];
+    int prev[]; 
 
 	// Creates a graph with V vertices and E edges 
 	Graph(int v, int e) 
@@ -25,7 +26,8 @@ class Graph
 		E = e; 
 		edge = new Edge[e]; 
 		for (int i=0; i<e; i++) 
-			edge[i] = new Edge(); 
+			edge[i] = new Edge();
+       prev=new int[v]; 
 	} 
 
 	// The main function that finds shortest distances from src 
@@ -35,14 +37,17 @@ class Graph
 	{ 
 		int V = graph.V, E = graph.E; 
 		int dist[] = new int[V]; 
-        if (k>E) //would k>V or k>E ????
-            k=E;
-        System.out.println(k);
+        if (k>V) //would k>V or k>E ????
+            k=V;
+        System.out.println("k= "+k);
 
 		// Step 1: Initialize distances from src to all other 
 		// vertices as INFINITE 
 		for (int i=0; i<V; i++) 
-			dist[i] = Integer.MAX_VALUE; 
+        {
+			dist[i] = 999; 
+            prev[i]=999;
+        }
 		dist[src] = 0; 
 
 		// Step 2: Relax all edges |V| - 1 times. A simple 
@@ -55,11 +60,14 @@ class Graph
 				int u = graph.edge[j].src; 
 				int v = graph.edge[j].dest; 
 				int weight = graph.edge[j].weight; 
-				if (dist[u]!=Integer.MAX_VALUE && 
-					dist[u]+weight<dist[v]) 
+				if (dist[u]!=999&&dist[u]+weight<dist[v])
+                { 
 					dist[v]=dist[u]+weight; 
+                    prev[v]=u;
+                }
+                printArr(dist,V);
 			}
-           printArr(dist,V); 
+        //   printArr(dist,V); 
 		} 
 
 		// Step 3: check for negative-weight cycles. The above 
@@ -71,19 +79,19 @@ class Graph
 			int u = graph.edge[j].src; 
 			int v = graph.edge[j].dest; 
 			int weight = graph.edge[j].weight; 
-			if (dist[u] != Integer.MAX_VALUE && 
-				dist[u]+weight < dist[v]) 
+			if (dist[u]!=999&&dist[u]+weight < dist[v]) 
 			System.out.println("Graph contains negative weight cycle"); 
-		} 
-//		printArr(dist, V); 
+		}
+       System.out.println("FINAL"); 
+		printArr(dist, V); 
 	} 
 
 	// A utility function used to print the solution 
 	void printArr(int dist[], int V) 
 	{ 
-		System.out.println("\nVertex Distance from Source"); 
+		System.out.println("\nVertex  Distance from Source  Previous"); 
 		for (int i=0; i<V; i++) 
-			System.out.println(i+"\t\t"+dist[i]); 
+			System.out.println(i+"\t\t"+dist[i]+"\t\t"+prev[i]); 
 	} 
 
 	// Driver method to test above function 
@@ -144,7 +152,7 @@ class Graph
 		graph.edge[9].dest = 2; 
 		graph.edge[9].weight = 10; 
 
-		graph.modifiedBellmanFord(graph, 0,3); 
+		graph.modifiedBellmanFord(graph, 5,2); 
 	} 
 } 
 // Contributed by Aakash Hasija 
