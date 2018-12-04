@@ -37,6 +37,7 @@ class Graph
 		int dist[] = new int[V]; 
         if (k>E) //would k>V or k>E ????
             k=E;
+        System.out.println(k);
 
 		// Step 1: Initialize distances from src to all other 
 		// vertices as INFINITE 
@@ -47,7 +48,7 @@ class Graph
 		// Step 2: Relax all edges |V| - 1 times. A simple 
 		// shortest path from src to any other vertex can 
 		// have at-most |V| - 1 edges 
-		for (int i=1; i<V; i++) 
+		for (int i=1; i<k; i++) 
 		{ 
 			for (int j=0; j<E; j++) 
 			{ 
@@ -57,7 +58,8 @@ class Graph
 				if (dist[u]!=Integer.MAX_VALUE && 
 					dist[u]+weight<dist[v]) 
 					dist[v]=dist[u]+weight; 
-			} 
+			}
+           printArr(dist,V); 
 		} 
 
 		// Step 3: check for negative-weight cycles. The above 
@@ -73,7 +75,7 @@ class Graph
 				dist[u]+weight < dist[v]) 
 			System.out.println("Graph contains negative weight cycle"); 
 		} 
-		printArr(dist, V); 
+//		printArr(dist, V); 
 	} 
 
 	// A utility function used to print the solution 
@@ -142,7 +144,7 @@ class Graph
 		graph.edge[9].dest = 2; 
 		graph.edge[9].weight = 10; 
 
-		graph.modifiedBellmanFord(graph, 5,2); 
+		graph.modifiedBellmanFord(graph, 0,3); 
 	} 
 } 
 // Contributed by Aakash Hasija 
