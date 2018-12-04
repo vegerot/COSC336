@@ -24,7 +24,7 @@ class Graph
 		V = v; 
 		E = e; 
 		edge = new Edge[e]; 
-		for (int i=0; i<e; ++i) 
+		for (int i=0; i<e; i++) 
 			edge[i] = new Edge(); 
 	} 
 
@@ -40,16 +40,16 @@ class Graph
 
 		// Step 1: Initialize distances from src to all other 
 		// vertices as INFINITE 
-		for (int i=0; i<V; ++i) 
+		for (int i=0; i<V; i++) 
 			dist[i] = Integer.MAX_VALUE; 
 		dist[src] = 0; 
 
 		// Step 2: Relax all edges |V| - 1 times. A simple 
 		// shortest path from src to any other vertex can 
 		// have at-most |V| - 1 edges 
-		for (int i=1; i<k; ++i) 
+		for (int i=1; i<V; i++) 
 		{ 
-			for (int j=0; j<E; ++j) 
+			for (int j=0; j<E; j++) 
 			{ 
 				int u = graph.edge[j].src; 
 				int v = graph.edge[j].dest; 
@@ -64,7 +64,7 @@ class Graph
 		// step guarantees shortest distances if graph doesn't 
 		// contain negative weight cycle. If we get a shorter 
 		// path, then there is a cycle. 
-		for (int j=0; j<E; ++j) 
+		for (int j=0; j<E; j++) 
 		{ 
 			int u = graph.edge[j].src; 
 			int v = graph.edge[j].dest; 
@@ -80,8 +80,8 @@ class Graph
 	void printArr(int dist[], int V) 
 	{ 
 		System.out.println("Vertex Distance from Source"); 
-		for (int i=0; i<V; ++i) 
-			System.out.println((i+1)+"\t\t"+dist[i]); 
+		for (int i=0; i<V; i++) 
+			System.out.println(i+"\t\t"+dist[i]); 
 	} 
 
 	// Driver method to test above function 
@@ -142,7 +142,7 @@ class Graph
 		graph.edge[9].dest = 2; 
 		graph.edge[9].weight = 10; 
 
-		graph.modifiedBellmanFord(graph, 1,2); 
+		graph.modifiedBellmanFord(graph, 5,2); 
 	} 
 } 
 // Contributed by Aakash Hasija 
