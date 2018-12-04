@@ -81,7 +81,7 @@ class Graph
 	// A utility function used to print the solution 
 	void printArr(int dist[], int V) 
 	{ 
-		System.out.println("Vertex Distance from Source"); 
+		System.out.println("\nVertex Distance from Source"); 
 		for (int i=0; i<V; i++) 
 			System.out.println(i+"\t\t"+dist[i]); 
 	} 
