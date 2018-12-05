@@ -60,7 +60,7 @@ class Graph
 				int u = graph.edge[j].src; 
 				int v = graph.edge[j].dest; 
 				int weight = graph.edge[j].weight; 
-				if (dist[u]!=999&&dist[u]+weight<dist[v])
+				if (dist[u]!=999&&dist[v]>dist[u]+weight])
                 { 
 					dist[v]=dist[u]+weight; 
                     prev[v]=u;
