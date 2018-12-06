@@ -31,7 +31,7 @@ class Graph
         int previousDist[] = new int[V];
         int newDist[] = new int[V];
         int prev[] = new int[V];
-        if (k>V) 
+        if (k>V) //shortest path can have at most |V|-1 edges
            k=V;
         System.out.println("\nk= "+k);
 
@@ -59,7 +59,7 @@ class Graph
 
                 for (int v=0; v<V; v++) //this is not O(V^2).  Because the next 'if' selects just the elements in the edges.  Therefore this loop is O(E)
                 {
-                    if (graph[u][v]!=f&&previousDist[u]!=f)
+                    if (graph[u][v]!=f&&previousDist[u]!=f) //select just the edges
                     {
                         if (newDist[v]>previousDist[u]+graph[u][v])
                         {
