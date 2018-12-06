@@ -122,7 +122,7 @@ class Graph
         // Step 2: Relax all edges at most k times. A simple
         // shortest path from src to any other vertex can
         // have at-most |V| - 1 edges so set k to v when k was greater than V
-        for (int i=1; i<k+1; i++)
+        for (int i=1; i<k+1; i++) //O(k)
         {
             for (int v=0; v<V; v++)
             {
@@ -130,7 +130,7 @@ class Graph
             }
             for (int u=0; u<V; u++){
 
-                for (int v=0; v<V; v++)
+                for (int v=0; v<V; v++) //this is not O(V^2).  Because the next 'if' selects just the elements in the edges.  Therefore this loop is O(E)
                 {
                     if (graph[u][v]!=f&&previousDist[u]!=f)
                     {
@@ -142,6 +142,7 @@ class Graph
                             newDist[v]=Math.min(newDist[v], previousDist[u]+graph[u][v]); 
                     }
                 }}
+            //Outer is O(k) and inner is O(E).  So total is O(k*E)
            //printArr(newDist,V);
         
 
