@@ -74,11 +74,11 @@ class Graph
  
         }
         
-            System.out.println("Start\t\tend\t\tlength");
+/*            System.out.println("Start\t\tend\t\tlength");
         if (newDist[dest]!=f)
             System.out.println((src+1)+"\t\t"+(dest+1)+"\t\t"+newDist[dest]);
         else
-            System.out.println((src+1)+"\t\t"+(dest+1)+"\t\t"+"NOT FOUND");
+            System.out.println((src+1)+"\t\t"+(dest+1)+"\t\t"+"NOT FOUND");*/
 
 
         System.out.println("Start\t\tend\t\tlength");
@@ -99,14 +99,14 @@ class Graph
 
         int graph[][] = new int[][]{ {0,f,f,f,-1,f},
                                      {1,0,f,2,f,f},
-                                     {0,2,0,f,f,-8},
+                                     {f,2,0,f,f,-8},
                                      {-4,f,f,0,3,f},
                                      {f,7,f,f,0,f},
                                      {f,5,10,f,f,0}
                                    };
-    	g.shortestPath(graph, 5,0,3,V,E);
-        g.shortestPath(graph, 4,0,2,V,E);
-        g.shortestPath(graph, 4,0,3,V,E);
+    	g.shortestPath(graph, 5, 0, 3, V, E);
+        g.shortestPath(graph, 2, 0, 2, V, E);
+        g.shortestPath(graph, 2, 0, 3, V, E);
 
     } 
 } 

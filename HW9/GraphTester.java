@@ -9,7 +9,7 @@ public class GraphTester
 
         int graph[][] = new int[][]{ {0,f,f,f,-1,f},
                                      {1,0,f,2,f,f},
-                                     {0,2,0,f,f,-8},
+                                     {f,2,0,f,f,-8},
                                      {-4,f,f,0,3,f},
                                      {f,7,f,f,0,f},
                                      {f,5,10,f,f,0}
