@@ -7,7 +7,7 @@ import java.io.*;
 // A class to represent a connected, directed and weighted graph 
 class Graph 
 {
-   static final int f=Integer.MAX_VALUE; 
+   static final int f=999; 
 	// A class to represent a weighted edge in graph 
 	class Edge { 
 		int src, dest, weight; 
@@ -108,6 +108,7 @@ class Graph
     {
         int previousDist[] = new int[V];
         int newDist[] = new int[V];
+        int prev[] = new int[V];
         //if (k>V) //would k>V or k>E ????
            // k=V;
         System.out.println("k= "+k);
@@ -118,7 +119,7 @@ class Graph
         {
             previousDist[i]=f;
             newDist[i] = f;
-            //prev[i]=f;
+            prev[i]=f;
         }
         previousDist[src] = 0;
         newDist[src]=0;
@@ -126,27 +127,39 @@ class Graph
         // Step 2: Relax all edges k times. A simple
         // shortest path from src to any other vertex can
         // have at-most |V| - 1 edges
-        for (int i=1; i<k+1; i++)
+        for (int i=1; i<k; i++)
         {
             for (int v=0; v<V; v++)
             {
                 previousDist[v]=newDist[v];
             }
-            for (int u=0; u<V; u++)
+            for (int u=0; u<V; u++){
+
+                    System.out.println(newDist[0]);
                 for (int v=0; v<V; v++)
                 {
-                    if (graph[u][v]!=f)
+                    if (graph[u][v]!=f&&previousDist[u]!=f)
                     {
-                        newDist[v]=Math.min(newDist[v], previousDist[u]+graph[u][v]);
+                        if (newDist[v]>previousDist[u]+graph[u][v])
+                        {
+                            prev[v]=u;
+                        }
+                        
+                            newDist[v]=Math.min(newDist[v], previousDist[u]+graph[u][v]); 
                     }
-                }
+                }}
            //printArr(newDist,V);
-        }
+        
 
  System.out.println("\nVertex  Distance from Source  Previous");
-        for (int i=0; i<V; i++)
-            System.out.println(i+"\t\t"+newDist[i]+"\t\t");
+        for (int m=0; m<V; m++)
+            System.out.println(m+"\t\t"+newDist[m]+"\t\t"+prev[m]);
+        }
 
+        System.out.println("FINAL");
+        System.out.println("\nVertex  Distance from Source  Previous");
+        for (int m=0; m<V; m++)
+            System.out.println(m+"\t\t"+newDist[m]+"\t\t"+prev[m]);
 
     } 
 

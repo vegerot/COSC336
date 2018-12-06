@@ -1,6 +1,6 @@
 public class GraphTester
 {
-       static final int f=Integer.MAX_VALUE;
+       static final int f=999;
 
     public static void main(String[] args)
     {
@@ -17,6 +17,7 @@ public class GraphTester
         
         Graph g=new Graph(V,E);
 
-        g.shortestPath(graph, 0,1,V,E);
+        
+        g.shortestPath(graph, 5,4,V,E);
     }
 }
