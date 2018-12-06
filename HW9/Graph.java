@@ -25,7 +25,7 @@ class Graph
 	} 
 
 	// The main function that finds shortest distances from src 
-	// to all other vertices using Bellman-Ford algorithm. The 
+	// to all other vertices using a modified Bellman-Ford algorithm.  
     public static void shortestPath(int graph[][], int src, int dest, int k, int V, int E)
     {
         int previousDist[] = new int[V];
