@@ -18,6 +18,9 @@ public class GraphTester
         Graph g=new Graph(V,E);
 
         
-        g.shortestPath(graph, 5,4,V,E);
+        g.shortestPath(graph, 5,2,3,V,E);
+        g.shortestPath(graph, 4,2,3,V,E);
+        g.shortestPath(graph, 4,2,4,V,E);
+
     }
 }

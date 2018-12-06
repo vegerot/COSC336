@@ -104,7 +104,7 @@ class Graph
 			System.out.println(i+"\t\t"+dist[i]+"\t\t"); 
 	}
 
-    public static void shortestPath(int graph[][], int src, int k, int V, int E)
+    public static void shortestPath(int graph[][], int src, int dest, int k, int V, int E)
     {
         int previousDist[] = new int[V];
         int newDist[] = new int[V];
@@ -135,7 +135,6 @@ class Graph
             }
             for (int u=0; u<V; u++){
 
-                    System.out.println(newDist[0]);
                 for (int v=0; v<V; v++)
                 {
                     if (graph[u][v]!=f&&previousDist[u]!=f)
@@ -151,15 +150,13 @@ class Graph
            //printArr(newDist,V);
         
 
- System.out.println("\nVertex  Distance from Source  Previous");
+ /*System.out.println("\nVertex  Distance from Source  Previous");
         for (int m=0; m<V; m++)
-            System.out.println(m+"\t\t"+newDist[m]+"\t\t"+prev[m]);
+            System.out.println(dest+"\t\t"+newDist[dest]+"\t\t"+prev[dest]);*/
         }
 
-        System.out.println("FINAL");
         System.out.println("\nVertex  Distance from Source  Previous");
-        for (int m=0; m<V; m++)
-            System.out.println(m+"\t\t"+newDist[m]+"\t\t"+prev[m]);
+        System.out.println(dest+"\t\t"+newDist[dest]+"\t\t"+prev[dest]);
 
     } 
 
@@ -176,7 +173,7 @@ class Graph
                                      {f,7,f,f,0,f},
                                      {f,5,10,f,f,0}
                                    };
-        shortestPath(graph, 0,1,V,E);
+//        shortestPath(graph, 0,1,V,E);
 
 		/*Graph graph = new Graph(V, E); 
 
