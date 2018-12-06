@@ -18,7 +18,7 @@ class Graph
 
 	int V, E; 
 	Edge edge[];
-    int prev[]; 
+    //int prev[]; 
 
 	// Creates a graph with V vertices and E edges 
 	Graph(int v, int e) 
@@ -28,7 +28,7 @@ class Graph
 		edge = new Edge[e]; 
 		for (int i=0; i<e; i++) 
 			edge[i] = new Edge();
-       prev=new int[v]; 
+       //prev=new int[v]; 
 	} 
 
 	// The main function that finds shortest distances from src 
@@ -49,7 +49,7 @@ class Graph
         {
             previousDist[i]=999;
 			newDist[i] = 999; 
-            prev[i]=999;
+            //prev[i]=999;
         }
 		previousDist[src] = 0; 
         newDist[src]=0;
@@ -73,7 +73,7 @@ class Graph
 				if (previousDist[u]!=999&&newDist[v]>previousDist[u]+weight)
                 { 
 					newDist[v]=previousDist[u]+weight; 
-                    prev[v]=u;
+              //      prev[v]=u;
                 }
                 printArr(newDist,V);
 			}
@@ -101,10 +101,10 @@ class Graph
 	{ 
 		System.out.println("\nVertex  Distance from Source  Previous"); 
 		for (int i=0; i<V; i++) 
-			System.out.println(i+"\t\t"+dist[i]+"\t\t"+prev[i]); 
+			System.out.println(i+"\t\t"+dist[i]+"\t\t"); 
 	}
 
-    int shortestPath(int graph[][], int src, int k, int V, int E)
+    public static void shortestPath(int graph[][], int src, int k, int V, int E)
     {
         int previousDist[] = new int[V];
         int newDist[] = new int[V];
@@ -118,7 +118,7 @@ class Graph
         {
             previousDist[i]=f;
             newDist[i] = f;
-            prev[i]=f;
+            //prev[i]=f;
         }
         previousDist[src] = 0;
         newDist[src]=0;
@@ -126,27 +126,26 @@ class Graph
         // Step 2: Relax all edges k times. A simple
         // shortest path from src to any other vertex can
         // have at-most |V| - 1 edges
-        for (int i=1; i<k; i++)
+        for (int i=1; i<k+1; i++)
         {
             for (int v=0; v<V; v++)
             {
-                previousDist[v]=newDist[v]
+                previousDist[v]=newDist[v];
             }
-            for (int j=0; j<E; j++)
-            {
-                int u = graph.edge[j].src;
-                int v = graph.edge[j].dest;
-                int weight = graph.edge[j].weight;
-                if (previousDist[u]!=999&&newDist[v]>previousDist[u]+weight)
+            for (int u=0; u<V; u++)
+                for (int v=0; v<V; v++)
                 {
-                    newDist[v]=previousDist[u]+weight;
-                    prev[v]=u;
+                    if (graph[u][v]!=f)
+                    {
+                        newDist[v]=Math.min(newDist[v], previousDist[u]+graph[u][v]);
+                    }
                 }
-                printArr(newDist,V);
-            }
-        //   printArr(dist,V);
+           //printArr(newDist,V);
         }
 
+ System.out.println("\nVertex  Distance from Source  Previous");
+        for (int i=0; i<V; i++)
+            System.out.println(i+"\t\t"+newDist[i]+"\t\t");
 
 
     } 
@@ -164,6 +163,7 @@ class Graph
                                      {f,7,f,f,0,f},
                                      {f,5,10,f,f,0}
                                    };
+        shortestPath(graph, 0,1,V,E);
 
 		/*Graph graph = new Graph(V, E); 
 
@@ -217,7 +217,7 @@ class Graph
 		graph.edge[9].dest = 2; 
 		graph.edge[9].weight = 10; */
 
-		graph.modifiedBellmanFord(graph, 0,3); 
+//		graph.modifiedBellmanFord(graph, 0,3); 
 	} 
 } 
 // Contributed by Aakash Hasija 
