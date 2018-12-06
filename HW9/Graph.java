@@ -233,6 +233,6 @@ class Graph
 //		graph.modifiedBellmanFord(graph, 0,3); 
 	} 
 } 
-// Contributed by Aakash Hasija 
+// Inspired by Aakash Hasija code on Geeks For Geeks
 
 
