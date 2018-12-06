@@ -1,7 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * This program finds the shortest wighted path within the restricted K number of edges used
+ * This program finds this path by first looking at a every potential path from the current list of connections and updating the best path to each
+ * After it has found the first path possible it spreads like a web, using a backup list to not move more than 1 space per iteration.
+ * after K iterations it takes the most recent list and finds the target and determines what the best path value was and if none printing that it could not be reached
+ * at the same time we have the best previous node for ease of error checking
  */
 // A Java program for Bellman-Ford's single source shortest path 
 // algorithm. 
@@ -74,11 +76,7 @@ class Graph
  
         }
         
-/*            System.out.println("Start\t\tend\t\tlength");
-        if (newDist[dest]!=f)
-            System.out.println((src+1)+"\t\t"+(dest+1)+"\t\t"+newDist[dest]);
-        else
-            System.out.println((src+1)+"\t\t"+(dest+1)+"\t\t"+"NOT FOUND");*/
+
 
 
         System.out.println("Start\t\tend\t\tlength");
