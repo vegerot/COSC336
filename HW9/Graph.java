@@ -6,7 +6,8 @@ import java.io.*;
 
 // A class to represent a connected, directed and weighted graph 
 class Graph 
-{ 
+{
+   static final int f=Integer.MAX_VALUE; 
 	// A class to represent a weighted edge in graph 
 	class Edge { 
 		int src, dest, weight; 
@@ -36,36 +37,45 @@ class Graph
 	void modifiedBellmanFord(Graph graph,int src,int k) 
 	{ 
 		int V = graph.V, E = graph.E; 
-		int dist[] = new int[V]; 
-        if (k>V) //would k>V or k>E ????
-            k=V;
+		int previousDist[] = new int[V];
+        int newDist[] = new int[V];
+        //if (k>V) //would k>V or k>E ????
+           // k=V;
         System.out.println("k= "+k);
 
 		// Step 1: Initialize distances from src to all other 
 		// vertices as INFINITE 
 		for (int i=0; i<V; i++) 
         {
-			dist[i] = 999; 
+            previousDist[i]=999;
+			newDist[i] = 999; 
             prev[i]=999;
         }
-		dist[src] = 0; 
+		previousDist[src] = 0; 
+        newDist[src]=0;
 
 		// Step 2: Relax all edges |V| - 1 times. A simple 
 		// shortest path from src to any other vertex can 
 		// have at-most |V| - 1 edges 
-		for (int i=1; i<k; i++) 
+		for (int i=1; i<k+1; i++) 
 		{ 
+            for (int j=0; j<V; j++)
+            {
+                int u = graph.edge[j].src;
+                int v = graph.edge[j].dest;
+                previousDist[u]=newDist[v];
+            }
 			for (int j=0; j<E; j++) 
 			{ 
 				int u = graph.edge[j].src; 
 				int v = graph.edge[j].dest; 
 				int weight = graph.edge[j].weight; 
-				if (dist[u]!=999&&dist[v]>dist[u]+weight])
+				if (previousDist[u]!=999&&newDist[v]>previousDist[u]+weight)
                 { 
-					dist[v]=dist[u]+weight; 
+					newDist[v]=previousDist[u]+weight; 
                     prev[v]=u;
                 }
-                printArr(dist,V);
+                printArr(newDist,V);
 			}
         //   printArr(dist,V); 
 		} 
@@ -74,16 +84,16 @@ class Graph
 		// step guarantees shortest distances if graph doesn't 
 		// contain negative weight cycle. If we get a shorter 
 		// path, then there is a cycle. 
-		for (int j=0; j<E; j++) 
+		/*for (int j=0; j<E; j++) 
 		{ 
 			int u = graph.edge[j].src; 
 			int v = graph.edge[j].dest; 
 			int weight = graph.edge[j].weight; 
-			if (dist[u]!=999&&dist[u]+weight < dist[v]) 
+			if (Dist[u]!=999&&dist[u]+weight < dist[v]) 
 			System.out.println("Graph contains negative weight cycle"); 
-		}
+		}*/
        System.out.println("FINAL"); 
-		printArr(dist, V); 
+		printArr(newDist, V); 
 	} 
 
 	// A utility function used to print the solution 
@@ -92,7 +102,54 @@ class Graph
 		System.out.println("\nVertex  Distance from Source  Previous"); 
 		for (int i=0; i<V; i++) 
 			System.out.println(i+"\t\t"+dist[i]+"\t\t"+prev[i]); 
-	} 
+	}
+
+    int shortestPath(int graph[][], int src, int k, int V, int E)
+    {
+        int previousDist[] = new int[V];
+        int newDist[] = new int[V];
+        //if (k>V) //would k>V or k>E ????
+           // k=V;
+        System.out.println("k= "+k);
+
+        // Step 1: Initialize distances from src to all other
+        // vertices as INFINITE
+        for (int i=0; i<V; i++)
+        {
+            previousDist[i]=f;
+            newDist[i] = f;
+            prev[i]=f;
+        }
+        previousDist[src] = 0;
+        newDist[src]=0;
+
+        // Step 2: Relax all edges k times. A simple
+        // shortest path from src to any other vertex can
+        // have at-most |V| - 1 edges
+        for (int i=1; i<k; i++)
+        {
+            for (int v=0; v<V; v++)
+            {
+                previousDist[v]=newDist[v]
+            }
+            for (int j=0; j<E; j++)
+            {
+                int u = graph.edge[j].src;
+                int v = graph.edge[j].dest;
+                int weight = graph.edge[j].weight;
+                if (previousDist[u]!=999&&newDist[v]>previousDist[u]+weight)
+                {
+                    newDist[v]=previousDist[u]+weight;
+                    prev[v]=u;
+                }
+                printArr(newDist,V);
+            }
+        //   printArr(dist,V);
+        }
+
+
+
+    } 
 
 	// Driver method to test above function 
 	public static void main(String[] args) 
@@ -100,7 +157,15 @@ class Graph
 		int V = 6; // Number of vertices in graph 
 		int E = 10; // Number of edges in graph 
 
-		Graph graph = new Graph(V, E); 
+        int graph[][] = new int[][]{ {0,f,f,f,-1,f},
+                                     {1,0,f,2,f,f},
+                                     {0,2,0,f,f,-8},
+                                     {-4,f,f,0,3,f},
+                                     {f,7,f,f,0,f},
+                                     {f,5,10,f,f,0}
+                                   };
+
+		/*Graph graph = new Graph(V, E); 
 
 		// add edge 0-1 (or A-B in above figure) 
 		graph.edge[0].src = 0; 
@@ -150,9 +215,9 @@ class Graph
 		// add edge 4-3 (or E-D in above figure) 
 		graph.edge[9].src = 5; 
 		graph.edge[9].dest = 2; 
-		graph.edge[9].weight = 10; 
+		graph.edge[9].weight = 10; */
 
-		graph.modifiedBellmanFord(graph, 5,2); 
+		graph.modifiedBellmanFord(graph, 0,3); 
 	} 
 } 
 // Contributed by Aakash Hasija 
