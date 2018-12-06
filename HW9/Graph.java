@@ -154,9 +154,12 @@ class Graph
         for (int m=0; m<V; m++)
             System.out.println(dest+"\t\t"+newDist[dest]+"\t\t"+prev[dest]);*/
         }
-
-        System.out.println("Start\t\tend\t\tlength");
-        System.out.println(src+"\t\t"+dest+"\t\t"+newDist[dest]);
+        
+            System.out.println("Start\t\tend\t\tlength");
+        if (newDist[dest]!=f)
+            System.out.println((src+1)+"\t\t"+(dest+1)+"\t\t"+newDist[dest]);
+        else
+            System.out.println((src+1)+"\t\t"+(dest+1)+"\t\t"+"NOT FOUND");
 
     } 
 
