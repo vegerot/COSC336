@@ -111,7 +111,7 @@ class Graph
         int prev[] = new int[V];
         //if (k>V) //would k>V or k>E ????
            // k=V;
-        System.out.println("k= "+k);
+        System.out.println("\nk= "+k);
 
         // Step 1: Initialize distances from src to all other
         // vertices as INFINITE
@@ -127,7 +127,7 @@ class Graph
         // Step 2: Relax all edges k times. A simple
         // shortest path from src to any other vertex can
         // have at-most |V| - 1 edges
-        for (int i=1; i<k; i++)
+        for (int i=1; i<k+1; i++)
         {
             for (int v=0; v<V; v++)
             {
@@ -155,7 +155,7 @@ class Graph
             System.out.println(dest+"\t\t"+newDist[dest]+"\t\t"+prev[dest]);*/
         }
 
-        System.out.println("\nStart  end  length");
+        System.out.println("Start\t\tend\t\tlength");
         System.out.println(src+"\t\t"+dest+"\t\t"+newDist[dest]);
 
     } 
