@@ -155,8 +155,8 @@ class Graph
             System.out.println(dest+"\t\t"+newDist[dest]+"\t\t"+prev[dest]);*/
         }
 
-        System.out.println("\nVertex  Distance from Source  Previous");
-        System.out.println(dest+"\t\t"+newDist[dest]+"\t\t"+prev[dest]);
+        System.out.println("\nStart  end  length");
+        System.out.println(src+"\t\t"+dest+"\t\t"+newDist[dest]);
 
     } 
 
